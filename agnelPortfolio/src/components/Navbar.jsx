@@ -62,7 +62,7 @@ export default function Navbar() {
           </a>
         ))}
         <a href="#contact" className="navbar__mobile-cta" onClick={() => setMenuOpen(false)}>
-          Hire Me
+          Say Hi
         </a>
       </div>
     </nav>
