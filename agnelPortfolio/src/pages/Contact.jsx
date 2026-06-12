@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import SocialIcons from '../components/SocialIcons'
-import { socials } from '../data/socials'
+import { socials } from '../data/Socials'
 import '../styles/Contact.css'
 
 export default function Contact() {
