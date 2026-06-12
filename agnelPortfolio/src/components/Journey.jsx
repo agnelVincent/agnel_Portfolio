@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { socials } from '../data/Socials'
 import './Journey.css'
 
 const timeline = [
@@ -20,24 +21,6 @@ const timeline = [
     title: 'B.Sc. Botany',
     org: 'University of Calicut | St. Thomas Autonomous College, Thrissur',
     desc: 'A science background that shaped a methodical, hypothesis-driven approach to engineering problems.',
-  },
-]
-
-const achievements = [
-  {
-    num: '300+',
-    label: 'LeetCode Problems',
-    desc: 'Covering core Data Structures & Algorithms patterns',
-  },
-  {
-    num: '02',
-    label: 'Production Deployments',
-    desc: 'End-to-end ownership — architecture to AWS hosting',
-  },
-  {
-    num: '∞',
-    label: 'Real-time Systems',
-    desc: 'WebSockets, Django Channels & Redis in live products',
   },
 ]
 
@@ -78,18 +61,47 @@ export default function Journey() {
         </div>
 
         <div className="journey__col reveal" style={{ transitionDelay: '0.15s' }}>
-          <p className="journey__eyebrow mono">By the numbers</p>
-          <h2 className="journey__heading">Proof of work</h2>
-          <div className="journey__achievements">
-            {achievements.map(item => (
-              <div className="journey__achievement" key={item.label}>
-                <span className="journey__achievement-num">{item.num}</span>
-                <div>
-                  <h4 className="journey__achievement-label">{item.label}</h4>
-                  <p className="journey__achievement-desc">{item.desc}</p>
-                </div>
+          <p className="journey__eyebrow mono">Off the clock</p>
+          <h2 className="journey__heading">What I'm into<br />besides this</h2>
+
+          <div className="journey__interests">
+            <a
+              href={socials.chess}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="journey__interest journey__interest--link"
+            >
+              <span className="journey__interest-icon">♟️</span>
+              <div>
+                <h4 className="journey__interest-label">A casual chess habit</h4>
+                <p className="journey__interest-desc">
+                  Mostly slow games and the occasional questionable opening.
+                  Feel free to challenge me on chess.com — link in the icon above.
+                </p>
               </div>
-            ))}
+            </a>
+
+            <div className="journey__interest">
+              <span className="journey__interest-icon">📚</span>
+              <div>
+                <h4 className="journey__interest-label">Going down rabbit holes</h4>
+                <p className="journey__interest-desc">
+                  If something catches my interest, I'll happily spend an entire evening
+                  reading or watching about it — even if it has nothing to do with code.
+                </p>
+              </div>
+            </div>
+
+            <div className="journey__interest">
+              <span className="journey__interest-icon">🧠</span>
+              <div>
+                <h4 className="journey__interest-label">Learning for its own sake</h4>
+                <p className="journey__interest-desc">
+                  The botany-to-code jump taught me that it's never too late to pick up
+                  something completely new — so I try to keep doing that.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="journey__quote">
@@ -97,8 +109,8 @@ export default function Journey() {
               <path d="M0 24V12.5C0 5.6 4.8 0.8 12 0L13.2 3.2C8.4 4.4 6 7.6 6 12H12V24H0ZM18 24V12.5C18 5.6 22.8 0.8 30 0L31.2 3.2C26.4 4.4 24 7.6 24 12H30V24H18Z" fill="currentColor"/>
             </svg>
             <p>
-              If it's not deployed, it's not done. I'd rather ship something small and real
-              than perfect something that never leaves my laptop.
+              I'm happiest when I'm in the middle of building something —
+              the messier the process, the more interesting the result.
             </p>
           </div>
         </div>

@@ -1,0 +1,46 @@
+.social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-icons__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--white-60);
+  transition: all var(--transition);
+}
+
+/* Default: round icon buttons */
+.social-icons--default .social-icons__link {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+}
+
+.social-icons--default .social-icons__link:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  transform: translateY(-3px);
+}
+
+/* Labeled: pill buttons with text */
+.social-icons--labeled .social-icons__link {
+  padding: 12px 22px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.social-icons--labeled .social-icons__link:hover {
+  border-color: var(--indigo);
+  color: var(--white);
+  background: var(--indigo-dim);
+  transform: translateY(-2px);
+}

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { socials } from '../data/Socials'
 import './Projects.css'
 
 const projects = [
@@ -6,17 +7,15 @@ const projects = [
     index: '01',
     name: 'MotoReach',
     tagline: 'Vehicle Service & Workshop Management Platform',
-    description: 'A four-role real-time platform connecting users, workshops, mechanics, and admins. Live mechanic assignment, repair estimates, and task-status sync flow over WebSockets, with geo-located workshop discovery and split Stripe payments.',
-    stack: ['Django REST Framework', 'React.js', 'PostgreSQL', 'Redis', 'WebSockets', 'Socket.IO', 'Stripe', 'Docker', 'AWS EC2'],
+    description: 'A platform that connects vehicle owners, workshops, mechanics, and admins — each with their own dashboard. The idea was simple: when your vehicle needs service, you should be able to find a nearby workshop, see a mechanic get assigned, and watch the whole job progress in real time, instead of just waiting and hoping.',
+    stack: ['Django REST Framework', 'React.js', 'PostgreSQL', 'Redis', 'WebSockets', 'Stripe'],
     features: [
-      'Role-based dashboards for 4 distinct actors',
-      'Live updates via Django Channels + Redis',
-      'Geo-location workshop discovery',
-      'Stripe Connect split payments',
-      'JWT, Google OAuth & OTP verification',
-      'Dockerized & deployed behind Nginx on EC2',
+      'Four separate dashboards — user, workshop, mechanic, and admin',
+      'Live status updates as a job moves from request to completion',
+      'Find the nearest workshop based on your location',
+      'Payments split automatically between the platform and the mechanic',
     ],
-    github: 'https://github.com/agnelvincent',
+    github: socials.github,
     live: '#',
     accent: 'indigo',
   },
@@ -24,17 +23,15 @@ const projects = [
     index: '02',
     name: 'EvoTime',
     tagline: 'E-Commerce Watch Ordering Platform',
-    description: 'A full e-commerce experience for a watch retailer — catalogue, cart, wishlist, checkout, and order management built on Django\'s MVT architecture, with Razorpay handling secure transactions and a normalized PostgreSQL schema underneath.',
-    stack: ['Django', 'PostgreSQL', 'Tailwind CSS', 'Razorpay', 'AWS EC2'],
+    description: 'A straightforward online store for watches — browse the catalogue, add to cart or wishlist, check out, and track your order. The focus here was getting all the small details of a shopping experience right, from a clean product flow to a payment process that just works.',
+    stack: ['Django', 'PostgreSQL', 'Tailwind CSS', 'Razorpay'],
     features: [
-      'Full catalogue, cart & wishlist flow',
-      'Checkout & order management',
-      'Razorpay payment integration',
-      'Normalized PostgreSQL schema',
-      'Optimized Django ORM queries',
-      'Deployed on AWS EC2 with Nginx',
+      'Browse, wishlist, and add items to cart',
+      'Smooth checkout with order tracking',
+      'Secure payments through Razorpay',
+      'A clean, well-organized product catalogue',
     ],
-    github: 'https://github.com/agnelvincent',
+    github: socials.github,
     live: '#',
     accent: 'cyan',
   },
@@ -62,8 +59,8 @@ export default function Projects() {
             <span className="projects__heading-accent">end to end</span>
           </h2>
           <p className="projects__intro">
-            Both projects went from blank repo to live deployment — architecture, API design,
-            frontend, containerization, and AWS hosting, all owned by me.
+            A couple of things I've built from scratch — start to finish, including the
+            parts that aren't very glamorous but make a project actually work.
           </p>
         </div>
 
@@ -122,7 +119,7 @@ export default function Projects() {
 
         <div className="projects__more reveal">
           <p>More experiments and contributions live on my GitHub.</p>
-          <a href="https://github.com/agnelvincent" target="_blank" rel="noopener noreferrer" className="projects__more-link">
+          <a href={socials.github} target="_blank" rel="noopener noreferrer" className="projects__more-link">
             Explore GitHub
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M7 17L17 7M7 7h10v10"/>

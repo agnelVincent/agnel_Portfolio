@@ -164,24 +164,20 @@
 
 .about__links {
   display: flex;
+  align-items: center;
   gap: 14px;
   flex-wrap: wrap;
 }
 
-.about__link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.about__email-link {
   padding: 12px 22px;
   border: 1px solid var(--border-subtle);
   border-radius: 100px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--white-60);
-  transition: all var(--transition);
 }
 
-.about__link:hover {
+.about__email-link:hover {
   border-color: var(--indigo);
   color: var(--white);
   background: var(--indigo-dim);
