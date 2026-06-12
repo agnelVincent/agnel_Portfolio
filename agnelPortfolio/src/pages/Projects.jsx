@@ -15,8 +15,8 @@ const projects = [
       'Find the nearest workshop based on your location',
       'Payments split automatically between the platform and the mechanic',
     ],
-    github: socials.github,
-    live: '#',
+    github: 'https://github.com/agnelVincent/_MotoReach',
+    live: 'https://moto-reach.vercel.app/login',
     accent: 'indigo',
   },
   {
@@ -31,8 +31,8 @@ const projects = [
       'Secure payments through Razorpay',
       'A clean, well-organized product catalogue',
     ],
-    github: socials.github,
-    live: '#',
+    github: 'https://github.com/agnelVincent/EvoTime',
+    live: 'http://timeevo.life/',
     accent: 'cyan',
   },
 ]
