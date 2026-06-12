@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import './Skills.css'
+import '../styles/Skills.css'
 
 const skillGroups = [
   {

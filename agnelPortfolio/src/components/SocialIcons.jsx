@@ -1,5 +1,5 @@
 import { socials } from '../data/Socials'
-import './SocialIcons.css'
+import '../styles/SocialIcons.css'
 
 const icons = {
   github: (

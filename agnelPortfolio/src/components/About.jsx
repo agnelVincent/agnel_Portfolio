@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import SocialIcons from './SocialIcons'
 import { socials } from '../data/Socials'
-import './About.css'
+import '../styles/About.css'
 
 export default function About() {
   const sectionRef = useRef(null)
@@ -52,7 +52,7 @@ export default function About() {
 
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
             <p className="about__text">
-              Studied Botany. Got curious about how software worked — not in theory,
+              Studied Botany. Got curious about how software worked - not in theory,
               but in practice. Pulled things apart until they made sense, then started
               building with the pieces. That's still the process.
             </p>

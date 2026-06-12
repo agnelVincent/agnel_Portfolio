@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { socials } from '../data/Socials'
-import './Projects.css'
+import '../styles/Projects.css'
 
 const projects = [
   {

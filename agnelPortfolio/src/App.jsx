@@ -1,10 +1,10 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Journey from './components/Journey'
-import Contact from './components/Contact'
+import Skills from './pages/Skills'
+import Projects from './pages/Projects'
+import Journey from './pages/Journey'
+import Contact from './pages/Contact'
 import Footer from './components/Footer'
 
 function App() {

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { socials } from '../data/socials'
-import './Journey.css'
+import '../styles/Journey.css'
 
 const timeline = [
   {

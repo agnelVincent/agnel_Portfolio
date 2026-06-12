@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
-import SocialIcons from './SocialIcons'
+import SocialIcons from '../components/SocialIcons'
 import { socials } from '../data/socials'
-import './Contact.css'
+import '../styles/Contact.css'
 
 export default function Contact() {
   const sectionRef = useRef(null)

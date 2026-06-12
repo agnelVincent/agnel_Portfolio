@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import SocialIcons from './SocialIcons'
-import './Hero.css'
+import '../styles/Hero.css'
 
 const roles = ['Full-Stack Developer', 'Problem Solver', 'Curious Builder', 'Lifelong Learner']
 
