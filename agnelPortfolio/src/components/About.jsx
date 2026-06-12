@@ -19,7 +19,7 @@ export default function About() {
         <div className="about__photo-col reveal">
           <div className="about__photo-wrap">
             <img
-              src="/profile-portrait.jpg"
+              src="/agnelyellow.jpg"
               alt="Agnel Vincent"
               className="about__photo"
               onError={e => {

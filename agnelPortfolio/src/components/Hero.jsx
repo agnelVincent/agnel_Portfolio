@@ -218,7 +218,7 @@ export default function Hero() {
             <div className="hero__photo-ring-inner">
               <div className="hero__photo-wrap">
                 <img
-                  src="/profile-square.jpg"
+                  src="/ag.py.jpg"
                   alt="Agnel Vincent"
                   className="hero__photo"
                   onError={e => {
