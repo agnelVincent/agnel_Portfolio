@@ -1,0 +1,180 @@
+.journey {
+  position: relative;
+  padding: 140px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.journey__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+}
+
+.journey__eyebrow {
+  font-size: 13px;
+  color: var(--cyan);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.journey__heading {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 56px;
+}
+
+/* Timeline */
+.journey__timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.journey__item {
+  display: flex;
+  gap: 24px;
+}
+
+.journey__item-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 6px;
+}
+
+.journey__item-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg-deep);
+  flex-shrink: 0;
+}
+
+.journey__item-dot--active {
+  border-color: var(--cyan);
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px var(--cyan-dim);
+}
+
+.journey__item-line {
+  width: 1px;
+  flex: 1;
+  background: var(--border-subtle);
+  margin: 6px 0;
+  min-height: 40px;
+}
+
+.journey__item-content {
+  padding-bottom: 44px;
+}
+
+.journey__item-period {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--indigo);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.journey__item-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.journey__item-org {
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 8px;
+}
+
+.journey__item-desc {
+  font-size: 14px;
+  color: var(--white-60);
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* Achievements */
+.journey__achievements {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+.journey__achievement {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.journey__achievement:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.journey__achievement-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--indigo), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 110px;
+  line-height: 1;
+}
+
+.journey__achievement-label {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.journey__achievement-desc {
+  font-size: 13px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+.journey__quote {
+  position: relative;
+  padding: 32px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+}
+
+.journey__quote-mark {
+  color: var(--indigo);
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+
+.journey__quote p {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .journey { padding: 100px 24px; }
+  .journey__inner {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+  .journey__heading { font-size: clamp(28px, 8vw, 40px); }
+}
