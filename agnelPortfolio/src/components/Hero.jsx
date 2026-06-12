@@ -172,7 +172,7 @@ export default function Hero() {
 
           <p className="hero__desc">
             I like figuring out how things work, then building my own version of them.
-            Most days that means writing code — websites, apps, little tools — but really
+            Most days that means writing code - websites, apps, little tools - but really
             it's just me enjoying the process of turning an idea into something real.
             This is a small corner of the internet where I share that.
           </p>
@@ -200,7 +200,7 @@ export default function Hero() {
             <div className="hero__photo-ring-inner">
               <div className="hero__photo-wrap">
                 <img
-                  src="/profile-square.jpg"
+                  src="/leetcode_dp.jpg"
                   alt="Agnel Vincent"
                   className="hero__photo"
                   onError={e => {

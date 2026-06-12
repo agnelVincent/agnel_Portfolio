@@ -102,49 +102,183 @@
   max-width: 420px;
 }
 
-/* Achievements */
-.journey__achievements {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-bottom: 48px;
+/* Chess feature card */
+.journey__chess {
+  position: relative;
+  display: block;
+  padding: 32px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: all var(--transition);
+  isolation: isolate;
 }
 
-.journey__achievement {
+.journey__chess:hover {
+  border-color: var(--indigo);
+  transform: translateY(-3px);
+  box-shadow: 0 24px 60px -24px rgba(108, 99, 255, 0.45);
+}
+
+.journey__chess-board {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  opacity: 0.5;
+  z-index: 0;
+  transform: rotate(-6deg) scale(1.3);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.journey__chess:hover .journey__chess-board {
+  transform: rotate(-3deg) scale(1.35);
+}
+
+.journey__chess-cell {
+  display: block;
+}
+
+.journey__chess-cell:nth-child(odd) {
+  background: rgba(108, 99, 255, 0.05);
+}
+
+.journey__chess-cell:nth-child(16n+1),
+.journey__chess-cell:nth-child(16n+3),
+.journey__chess-cell:nth-child(16n+5),
+.journey__chess-cell:nth-child(16n+7),
+.journey__chess-cell:nth-child(16n+10),
+.journey__chess-cell:nth-child(16n+12),
+.journey__chess-cell:nth-child(16n+14),
+.journey__chess-cell:nth-child(16n+16) {
+  background: rgba(0, 245, 212, 0.04);
+}
+
+.journey__chess-glow {
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.35) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+  transition: opacity var(--transition);
+  opacity: 0.6;
+}
+
+.journey__chess:hover .journey__chess-glow {
+  opacity: 1;
+}
+
+.journey__chess-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.journey__chess-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
-  gap: 28px;
-  padding-bottom: 28px;
-  border-bottom: 1px solid var(--border-subtle);
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--indigo), #8b83ff);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(108, 99, 255, 0.4);
+  transition: transform var(--transition);
 }
 
-.journey__achievement:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.journey__chess:hover .journey__chess-icon {
+  transform: rotate(-12deg) scale(1.08);
 }
 
-.journey__achievement-num {
+.journey__chess-text {
+  flex: 1;
+}
+
+.journey__chess-title {
   font-family: var(--font-display);
-  font-size: 48px;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--indigo), var(--cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  min-width: 110px;
-  line-height: 1;
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
-.journey__achievement-label {
+.journey__chess-desc {
+  font-size: 14px;
+  color: var(--white-60);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  max-width: 460px;
+}
+
+.journey__chess-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 0.02em;
+}
+
+.journey__chess-cta svg {
+  transition: transform var(--transition);
+}
+
+.journey__chess:hover .journey__chess-cta svg {
+  transform: translate(3px, -3px);
+}
+
+/* Other interests */
+.journey__interests {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.journey__interest {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 22px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  transition: all var(--transition);
+}
+
+.journey__interest:hover {
+  border-color: var(--border);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.journey__interest-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.journey__interest-label {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
-.journey__achievement-desc {
+.journey__interest-desc {
   font-size: 13px;
   color: var(--slate);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .journey__quote {
@@ -177,4 +311,14 @@
     gap: 80px;
   }
   .journey__heading { font-size: clamp(28px, 8vw, 40px); }
+}
+
+@media (max-width: 600px) {
+  .journey__chess-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .journey__chess-desc {
+    max-width: 100%;
+  }
 }

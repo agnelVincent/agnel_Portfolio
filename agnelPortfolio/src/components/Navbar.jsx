@@ -5,7 +5,6 @@ const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navbar() {
@@ -38,7 +37,7 @@ export default function Navbar() {
         </ul>
 
         <a href="#contact" className="navbar__cta">
-          Hire Me
+          Say Hi
         </a>
 
         <button

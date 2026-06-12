@@ -21,7 +21,7 @@ export default function About() {
         <div className="about__photo-col reveal">
           <div className="about__photo-wrap">
             <img
-              src="/profile-portrait.jpg"
+              src="/agnelyellow.jpg"
               alt="Agnel Vincent"
               className="about__photo"
               onError={e => {
@@ -43,53 +43,61 @@ export default function About() {
 
         <div className="about__content">
           <div className="reveal">
-            <p className="about__eyebrow mono">A bit about me</p>
+            <p className="about__eyebrow mono">— on the record</p>
             <h2 className="about__heading">
               Mostly a developer,<br />
-              <span className="about__heading-accent">also just a person</span>
+              <span className="about__heading-accent">everything else, after hours</span>
             </h2>
           </div>
 
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
             <p className="about__text">
-              I came to programming from a fairly unusual place — a Bachelor's degree in Botany.
-              Somewhere along the way I got curious about how the apps I was using every day
-              actually worked, started learning, and never really stopped. These days I spend
-              most of my time building web applications, piece by piece, until they turn into
-              something people can actually use.
+              Studied Botany. Got curious about how software worked — not in theory,
+              but in practice. Pulled things apart until they made sense, then started
+              building with the pieces. That's still the process.
             </p>
             <p className="about__text">
-              Outside of that, I'm probably reading up on something completely unrelated,
-              watching a video about a topic I'll forget about in a week, or just poking
-              around with a new idea to see where it goes. A few more of those things
-              are tucked away further down the page.
+              These days it's web applications, built carefully, until they're
+              something a person can actually use. No fixed allegiances to any stack
+              or pattern. When something better shows up, I move toward it.
+              When a project ships, I move on.
             </p>
           </div>
 
           <div className="about__cards reveal" style={{ transitionDelay: '0.2s' }}>
             <div className="about__card">
-              <div className="about__card-icon">🌱</div>
-              <div>
-                <div className="about__card-title">An unconventional start</div>
-                <div className="about__card-desc">From studying plants to building platforms — curiosity took the wheel</div>
+              <div className="about__card-top">
+                <span className="about__card-num">01</span>
+                <i className="ti ti-bulb about__card-icon" aria-hidden="true" />
+              </div>
+              <div className="about__card-title">Why before How</div>
+              <div className="about__card-desc">
+                If the reason isn't clear, the solution doesn't matter. That's where everything starts.
               </div>
             </div>
+
             <div className="about__card">
-              <div className="about__card-icon">🧩</div>
-              <div>
-                <div className="about__card-title">I like figuring things out</div>
-                <div className="about__card-desc">Most of what I know, I picked up by building and breaking things</div>
+              <div className="about__card-top">
+                <span className="about__card-num">02</span>
+                <i className="ti ti-robot about__card-icon" aria-hidden="true" />
+              </div>
+              <div className="about__card-title">AI-first curious</div>
+              <div className="about__card-desc">
+                Always poking at new AI tools. Not to follow the hype, but to know what's actually useful.
               </div>
             </div>
+
             <div className="about__card">
-              <div className="about__card-icon">💬</div>
-              <div>
-                <div className="about__card-title">Always up for a chat</div>
-                <div className="about__card-desc">About a project, an idea, or honestly anything — say hi below</div>
+              <div className="about__card-top">
+                <span className="about__card-num">03</span>
+                <i className="ti ti-flame about__card-icon" aria-hidden="true" />
+              </div>
+              <div className="about__card-title">Run toward the hard thing</div>
+              <div className="about__card-desc">
+                Discomfort usually means it's worth doing. That's the whole filter.
               </div>
             </div>
           </div>
-
           <div className="about__links reveal" style={{ transitionDelay: '0.3s' }}>
             <SocialIcons variant="labeled" />
             <a href={`mailto:${socials.email}`} className="social-icons__link about__email-link">
