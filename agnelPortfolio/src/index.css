@@ -109,8 +109,24 @@ img {
 }
 
 @media (max-width: 640px) {
+  body {
+    background-size: 100% 100%, 48px 48px, 48px 48px;
+    font-size: 14.5px;
+  }
+
   .inner {
     padding: 0 20px;
+  }
+
+  .section-meta-head {
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .inner {
+    padding: 0 16px;
   }
 }
 

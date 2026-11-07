@@ -124,17 +124,57 @@
 }
 
 @media (max-width: 760px) {
+  .hero {
+    padding: 44px 0 40px;
+  }
+
+  .hero-top {
+    margin-bottom: 28px;
+  }
+
+  .hero-name {
+    font-size: clamp(38px, 11vw, 76px);
+    line-height: 1.02;
+    gap: 0.18em;
+  }
+
   .hero-stage {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
+  }
+
+  .hero-lead {
+    font-size: 18px;
+    line-height: 1.52;
+  }
+
+  .hero-body {
+    font-size: 14.5px;
+    line-height: 1.72;
   }
 
   .hero-photo-col {
-    justify-content: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-top: 4px;
   }
 
   .hero-photo-frame {
-    max-width: 220px;
-    height: 260px;
+    width: 100%;
+    max-width: 270px;
+    height: 330px;
+    border-radius: 14px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-name {
+    font-size: 36px;
+  }
+
+  .hero-photo-frame {
+    max-width: 240px;
+    height: 300px;
   }
 }

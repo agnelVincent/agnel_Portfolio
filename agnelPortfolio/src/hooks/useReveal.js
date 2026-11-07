@@ -11,7 +11,7 @@ export function useReveal() {
     const els = ref.current?.querySelectorAll('.reveal') ?? []
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('in-view')),
-      { threshold: 0.12 }
+      { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
     )
     els.forEach(el => obs.observe(el))
     return () => obs.disconnect()

@@ -67,7 +67,28 @@
 }
 
 @media (max-width: 640px) {
+  .nav {
+    padding: 14px 0;
+  }
+
+  .nav.scrolled {
+    padding: 10px 0;
+  }
+
+  .nav-inner {
+    gap: 12px;
+  }
+
   .nav-anchors {
     display: none;
+  }
+
+  .nav-links {
+    gap: 14px;
+    font-size: 12.5px;
+  }
+
+  .nav-links a {
+    padding: 4px 0;
   }
 }

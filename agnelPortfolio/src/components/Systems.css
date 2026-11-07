@@ -124,8 +124,44 @@
 }
 
 @media (max-width: 740px) {
+  .systems {
+    padding: 52px 0;
+  }
+
   .systems-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .sys-card {
+    padding: 22px 18px;
+  }
+
+  .sys-card:active {
+    transform: scale(0.99);
+    border-color: var(--border-hover);
+  }
+
+  .sys-title {
+    font-size: 15px;
+  }
+
+  .sys-desc {
+    font-size: 13.5px;
+    line-height: 1.68;
+    margin-bottom: 16px;
+  }
+
+  .sys-footer {
+    padding-top: 12px;
+  }
+
+  .sys-tags {
+    gap: 6px;
+  }
+
+  .sys-tag {
+    font-size: 10.5px;
+    padding: 3px 8px;
   }
 }
