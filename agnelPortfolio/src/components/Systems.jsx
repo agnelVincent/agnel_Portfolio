@@ -4,15 +4,15 @@ import { useReveal } from '../hooks/useReveal'
 const items = [
   {
     num: '01',
-    title: 'Data Migration & Oracle Pipelines',
+    title: 'Data Migration',
     body: 'Executing IFS Cloud data migrations between environments and handling Oracle DB transfers. Working directly with internal system tables and core entity tables, authoring custom PL/SQL scripts, procedures, and data verification routines to ensure complete integrity.',
     tags: ['IFS Cloud', 'Oracle DB', 'PL/SQL', 'Data Migration', 'Schema Mapping'],
   },
   {
     num: '02',
     title: 'REST APIs & Full-Stack Systems',
-    body: 'Primarily a Python developer working with FastAPI and Django on the backend, alongside React and Next.js on the client. Built full-stack web applications, standalone Windows applications, and designed scalable REST API architectures.',
-    tags: ['Python', 'FastAPI', 'Django', 'React', 'Next.js', 'Windows Apps'],
+    body: 'Primarily a Python developer working with FastAPI and Django on the backend, alongside React and Next.js on the client, backed by PostgreSQL and MongoDB. Built full-stack web applications, standalone Windows applications, and designed scalable REST API architectures.',
+    tags: ['Python', 'FastAPI', 'Django', 'React', 'Next.js', 'PostgreSQL', 'MongoDB'],
   },
   {
     num: '03',
@@ -22,7 +22,7 @@ const items = [
   },
   {
     num: '04',
-    title: 'Azure CI/CD & IFS Build Flows',
+    title: 'DevOps and IFS Build Flows',
     body: 'Configuring and managing automated build flow pipelines in Azure DevOps specifically for IFS Cloud environments, ensuring predictable compilation, packaging, and smooth environment deliveries.',
     tags: ['IFS Cloud', 'Azure DevOps', 'CI/CD Pipelines', 'Build Flows'],
   },

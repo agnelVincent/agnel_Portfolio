@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="hero-stage">
           <div className="hero-prose-col reveal" style={{ transitionDelay: '0.08s' }}>
             <p className="hero-lead">
-              I'm a software engineer, mostly focused on backend systems, data pipelines, and infrastructure.
+              I'm a software engineer working on backend systems, data pipelines, and infrastructure.
             </p>
             <p className="hero-body">
               I like when things get into a messy state: broken schemas, failing migrations, or deadlock cascades. 

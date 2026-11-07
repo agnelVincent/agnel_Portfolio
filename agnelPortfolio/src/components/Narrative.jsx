@@ -16,8 +16,7 @@ export default function Narrative() {
           <div className="narrative-prose reveal">
             <p className="narrative-opener">
               For a long time I had no direction at all. I tried different things,
-              failed at most of them, and spent three years studying plant cells at university
-              with zero conviction. I did not know what I wanted to do or where I was going.
+              failed at most of them, and had no clear roadmap. I did not know what I wanted to do or where I was going.
             </p>
             <p>
               Growing up, I never owned a computer and was genuinely terrified of them. 
@@ -42,7 +41,7 @@ export default function Narrative() {
             <div className="narrative-photo-frame">
               <img
                 src="/agnelyellow.jpg"
-                alt="Agnel Vincent in Thrissur"
+                alt="Agnel Vincent"
                 className="narrative-photo-img"
                 onError={e => { e.target.src = '/leetcode_dp.jpg' }}
               />
