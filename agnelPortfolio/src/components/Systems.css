@@ -71,11 +71,21 @@
   flex: 1;
 }
 
+.sys-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
 .sys-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-  margin-top: auto;
 }
 
 .sys-tag {
@@ -92,6 +102,25 @@
 .sys-card:hover .sys-tag {
   color: var(--text-2);
   border-color: rgba(255, 255, 255, 0.14);
+}
+
+.sys-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  color: var(--text-2);
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  transition: all 180ms ease;
+}
+
+.sys-link:hover {
+  color: var(--text-1);
+  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 740px) {

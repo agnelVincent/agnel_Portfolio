@@ -9,6 +9,7 @@ export default function Footer() {
         <div className="footer-links">
           <a href={socials.github} target="_blank" rel="noreferrer">GitHub ↗</a>
           <a href={socials.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href={socials.leetcode} target="_blank" rel="noreferrer">LeetCode ↗</a>
           <a href={socials.chess} target="_blank" rel="noreferrer">Chess.com ↗</a>
           <a href={`mailto:${socials.email}`}>Email ↗</a>
         </div>
