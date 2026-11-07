@@ -1,27 +1,23 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './pages/Skills'
-import Projects from './pages/Projects'
-import Journey from './pages/Journey'
-import Contact from './pages/Contact'
+import Narrative from './components/Narrative'
+import Systems from './components/Systems'
+import Thinking from './components/Thinking'
+import Chess from './components/Chess'
 import Footer from './components/Footer'
 
-function App() {
+export default function App() {
   return (
-    <>
+    <div className="shell">
       <Navbar />
-      <main>
+      <main className="inner">
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Journey />
-        <Contact />
+        <Narrative />
+        <Systems />
+        <Thinking />
+        <Chess />
+        <Footer />
       </main>
-      <Footer />
-    </>
+    </div>
   )
 }
-
-export default App

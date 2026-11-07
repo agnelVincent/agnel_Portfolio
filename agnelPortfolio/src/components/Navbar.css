@@ -1,0 +1,44 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 20px 0;
+  transition: background 200ms ease, border-color 200ms ease, padding 200ms ease;
+  border-bottom: 1px solid transparent;
+}
+
+.nav.scrolled {
+  background: rgba(13, 14, 17, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: var(--border);
+  padding: 14px 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-name {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-size: 13.5px;
+}
+
+.nav-links a {
+  color: var(--text-2);
+  transition: color 150ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-1);
+}

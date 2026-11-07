@@ -1,0 +1,101 @@
+.narrative {
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-header {
+  margin-bottom: 32px;
+}
+
+.section-label {
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.narrative-grid {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.narrative-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 15px;
+  line-height: 1.78;
+  color: var(--text-2);
+}
+
+.prose-highlight {
+  color: var(--text-1);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Aside: Photo & Quote */
+.narrative-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 90px;
+}
+
+.narrative-photo-card {
+  width: 220px;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  transition: transform 250ms ease, border-color 250ms ease;
+}
+
+.narrative-photo-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+}
+
+.narrative-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.02);
+}
+
+.narrative-quote {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-2);
+  font-style: italic;
+  padding: 12px 14px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+@media (max-width: 720px) {
+  .narrative {
+    padding: 40px 0;
+  }
+
+  .narrative-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .narrative-aside {
+    position: static;
+    max-width: 200px;
+  }
+
+  .narrative-photo-card {
+    width: 160px;
+    height: 200px;
+  }
+}
