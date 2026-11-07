@@ -1,41 +1,23 @@
 .thinking {
-  padding: 56px 0;
+  padding: 88px 0;
   border-top: 1px solid var(--border);
 }
 
-.thinking-card {
-  background: var(--bg-raised);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 32px;
+.thinking-body {
+  max-width: 660px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  gap: 22px;
 }
 
-.thinking-lead {
-  font-size: 16.5px;
-  line-height: 1.7;
-  color: var(--text-1);
-}
-
-.thinking-sub {
-  font-size: 14.5px;
-  line-height: 1.75;
+.thinking-body p {
+  font-size: 16px;
+  line-height: 1.84;
   color: var(--text-2);
 }
 
-@media (max-width: 600px) {
-  .thinking {
-    padding: 40px 0;
-  }
-
-  .thinking-card {
-    padding: 22px;
-  }
-
-  .thinking-lead {
-    font-size: 15.5px;
-  }
+.thinking-body p:first-child {
+  color: var(--text-1);
+  font-size: 17.5px;
+  letter-spacing: -0.01em;
 }

@@ -1,55 +1,65 @@
 import './Systems.css'
+import { useReveal } from '../hooks/useReveal'
 
-const systems = [
+const items = [
   {
     num: '01',
     title: 'Data Migration & Oracle Pipelines',
-    tags: ['Oracle DB', 'Custom ETL', 'Schema Reconciliation'],
-    desc: 'Moving mission-critical data out of aging legacy structures into modern databases. Writing migration tools, verifying row-level checksums, and handling transactional rollbacks across complex Oracle schemas with zero data loss.',
+    body: 'Moving mission-critical data out of aging legacy structures without breaking state mid-transfer. Custom ETL tools, transactional rollback checkpoints, schema reconciliation, and row-level verification across Oracle databases.',
+    tags: ['Oracle DB', 'ETL Verification', 'Schema Mapping', 'Zero Data Loss'],
   },
   {
     num: '02',
     title: 'Database Architecture & Query Optimization',
-    tags: ['PostgreSQL', 'Oracle', 'Index Tuning', 'ACID Locks'],
-    desc: 'Designing relational schemas that stay responsive under high concurrency. Diagnosing slow queries, eliminating connection pool exhaustion, and resolving row-level lock contention.',
+    body: 'Relational schemas in Oracle and PostgreSQL designed to hold up under real load. Diagnosing lock contention, eliminating connection pool starvation, and cutting query latency down through indexing and transaction isolation tuning.',
+    tags: ['PostgreSQL', 'Oracle', 'Index Tuning', 'ACID Concurrency'],
   },
   {
     num: '03',
-    title: 'REST APIs & Gateway Services',
-    tags: ['REST APIs', 'Gateways', 'WebSockets', 'Auth'],
-    desc: 'Structuring full-stack applications, centralizing request routing and authentication at the gateway layer, and maintaining real-time bidirectional state sync with WebSockets.',
+    title: 'REST APIs & Full-Stack Applications',
+    body: 'Building complete applications from the data layer up: clean API design, centralized gateway routing, authentication, and bidirectional WebSocket pipes for real-time state synchronization.',
+    tags: ['RESTful APIs', 'Gateway Routing', 'WebSockets', 'Full-Stack'],
   },
   {
     num: '04',
     title: 'DevOps & Containerized Infrastructure',
-    tags: ['Docker', 'Nginx Proxy', 'Linux'],
-    desc: 'Containerizing multi-service backends with Docker, configuring Nginx for reverse proxying and SSL termination, and building predictable deployment workflows on Linux.',
+    body: 'Getting the runtime environment right so deployments are predictable. Multi-stage Docker containers, hardened Nginx reverse proxies with SSL termination, and automated deployment workflows on Linux.',
+    tags: ['Docker', 'Nginx Reverse Proxy', 'Linux', 'CI/CD Automation'],
   },
 ]
 
 export default function Systems() {
-  return (
-    <section className="systems">
-      <div className="section-header">
-        <span className="section-label mono">02 / Work &amp; Systems</span>
-      </div>
+  const ref = useReveal()
 
-      <div className="systems-grid">
-        {systems.map((item) => (
-          <div key={item.num} className="system-card">
-            <div className="card-top">
-              <span className="card-num mono">{item.num}</span>
-              <div className="card-tags mono">
+  return (
+    <section className="systems" ref={ref}>
+      <div className="inner">
+        <div className="section-eyebrow mono reveal">Work</div>
+
+        <div className="systems-list">
+          {items.map((item, i) => (
+            <div
+              key={item.num}
+              className="sys-card reveal"
+              style={{ transitionDelay: `${i * 0.08}s` }}
+            >
+              <div className="sys-header">
+                <span className="sys-num mono">{item.num}</span>
+                <h3 className="sys-title">{item.title}</h3>
+              </div>
+
+              <p className="sys-desc">{item.body}</p>
+
+              <div className="sys-tags mono">
                 {item.tags.map((tag) => (
-                  <span key={tag} className="tag-pill">{tag}</span>
+                  <span key={tag} className="sys-tag">
+                    {tag}
+                  </span>
                 ))}
               </div>
             </div>
-
-            <h3 className="card-title">{item.title}</h3>
-            <p className="card-desc">{item.desc}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )

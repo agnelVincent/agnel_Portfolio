@@ -10,14 +10,14 @@ export default function App() {
   return (
     <div className="shell">
       <Navbar />
-      <main className="inner">
+      <main>
         <Hero />
         <Narrative />
         <Systems />
         <Thinking />
         <Chess />
-        <Footer />
       </main>
+      <Footer />
     </div>
   )
 }
