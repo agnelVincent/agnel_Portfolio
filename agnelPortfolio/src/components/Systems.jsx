@@ -39,7 +39,7 @@ export default function Systems() {
           <span className="section-tag mono">CORE DOMAINS</span>
         </div>
 
-        <div className="systems-list">
+        <div className="systems-grid">
           {items.map((item, i) => (
             <div
               key={item.num}

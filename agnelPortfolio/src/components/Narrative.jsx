@@ -20,7 +20,7 @@ export default function Narrative() {
               with zero conviction. I did not know what I wanted to do or where I was going.
             </p>
             <p>
-              Growing up in Thrissur, I never owned a computer and was genuinely terrified of them. 
+              Growing up, I never owned a computer and was genuinely terrified of them. 
               I had this deep insecurity that if I touched one, I would press the wrong key, break something, 
               and shut the whole machine down. When people around me used computers effortlessly, 
               I felt so exposed by not knowing anything that I would lie and make excuses, pretending 

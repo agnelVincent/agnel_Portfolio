@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="inner footer-inner">
-        <span className="footer-id mono">Tony · Thrissur</span>
+        <span className="footer-id mono">Tony</span>
         <div className="footer-links">
           <a href={socials.github} target="_blank" rel="noreferrer">GitHub ↗</a>
           <a href={socials.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
