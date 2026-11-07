@@ -5,27 +5,27 @@
 }
 
 :root {
-  --bg: #090a0d;
-  --bg-surface: #0f1117;
-  --bg-raised: #141720;
+  --bg: #090a0f;
+  --bg-surface: #0e1017;
+  --bg-raised: #141722;
   --bg-card: rgba(255, 255, 255, 0.025);
   --bg-card-hover: rgba(255, 255, 255, 0.045);
 
-  --border: rgba(255, 255, 255, 0.08);
-  --border-card: rgba(255, 255, 255, 0.09);
-  --border-hover: rgba(255, 255, 255, 0.2);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-card: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
   --border-highlight: rgba(255, 255, 255, 0.12);
 
-  --text-1: #f4f5f8;
-  --text-2: #989da8;
-  --text-3: #585c68;
+  --text-1: #f3f4f7;
+  --text-2: #9ba1b0;
+  --text-3: #5f6575;
 
-  --accent-titanium: #d4d7e1;
+  --accent-titanium: #d6d9e4;
   --accent-warm: #e0d8cc;
 
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Geist', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Geist', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -46,12 +46,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Architectural subtle grid & top illumination */
+  /* Architectural subtle technical texture & top illumination */
   background-image: 
-    radial-gradient(ellipse 70% 400px at 50% -10%, rgba(255, 255, 255, 0.04) 0%, transparent 70%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 72px 72px, 72px 72px;
+    radial-gradient(ellipse 70% 500px at 50% -60px, rgba(148, 163, 184, 0.065) 0%, transparent 70%),
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.035) 1px, transparent 0);
+  background-size: 100% 100%, 32px 32px;
 }
 
 ::selection {
