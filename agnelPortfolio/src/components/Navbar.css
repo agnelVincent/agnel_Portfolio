@@ -32,6 +32,13 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   color: #f3f4f7;
+  transition: color 250ms ease, text-shadow 250ms ease;
+  cursor: default;
+}
+
+.nav-name:hover {
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.45);
 }
 
 .nav-anchors {
@@ -43,11 +50,13 @@
 
 .nav-anchors a {
   color: var(--text-3);
-  transition: color 150ms ease;
+  transition: color 200ms ease, transform 200ms var(--ease-out);
+  display: inline-block;
 }
 
 .nav-anchors a:hover {
   color: var(--text-1);
+  transform: translateY(-0.5px);
 }
 
 .nav-links {
@@ -59,11 +68,13 @@
 
 .nav-links a {
   color: var(--text-2);
-  transition: color 150ms ease;
+  transition: color 200ms ease, transform 200ms var(--ease-out);
+  display: inline-block;
 }
 
 .nav-links a:hover {
-  color: var(--text-1);
+  color: #ffffff;
+  transform: translateY(-0.5px);
 }
 
 @media (max-width: 640px) {

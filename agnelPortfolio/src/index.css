@@ -13,15 +13,19 @@
 
   --border: rgba(255, 255, 255, 0.07);
   --border-card: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.18);
-  --border-highlight: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --border-highlight: rgba(255, 255, 255, 0.14);
 
   --text-1: #f3f4f7;
   --text-2: #9ba1b0;
   --text-3: #5f6575;
 
-  --accent-titanium: #d6d9e4;
-  --accent-warm: #e0d8cc;
+  /* Harmonious chromatic accents */
+  --accent-amber: #f59e0b;
+  --accent-cyan: #38bdf8;
+  --accent-violet: #a855f7;
+  --accent-blue: #60a5fa;
+  --accent-titanium: #e2e8f0;
 
   --font-sans: 'Geist', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Geist', 'Plus Jakarta Sans', -apple-system, sans-serif;
@@ -29,6 +33,7 @@
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 html {
@@ -46,11 +51,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Architectural subtle technical texture & top illumination */
+  /* Magnificent multi-stop chromatic ambient mesh & precision technical grid */
   background-image: 
-    radial-gradient(ellipse 70% 500px at 50% -60px, rgba(148, 163, 184, 0.065) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 480px at 20% -40px, rgba(99, 102, 241, 0.045) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 420px at 80% -30px, rgba(245, 158, 11, 0.03) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 500px at 50% 30%, rgba(56, 189, 248, 0.02) 0%, transparent 70%),
     radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.035) 1px, transparent 0);
-  background-size: 100% 100%, 32px 32px;
+  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px;
 }
 
 ::selection {

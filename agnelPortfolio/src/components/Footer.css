@@ -31,6 +31,8 @@
   color: var(--text-2);
   position: relative;
   padding: 2px 0;
+  display: inline-block;
+  transition: color 200ms ease, transform 200ms var(--ease-out);
 }
 
 .footer-links a::after {
@@ -45,7 +47,8 @@
 }
 
 .footer-links a:hover {
-  color: var(--text-1);
+  color: #ffffff;
+  transform: translateY(-0.5px);
 }
 
 .footer-links a:hover::after {
