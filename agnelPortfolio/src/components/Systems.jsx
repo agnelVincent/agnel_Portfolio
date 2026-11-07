@@ -32,9 +32,12 @@ export default function Systems() {
   const ref = useReveal()
 
   return (
-    <section className="systems" ref={ref}>
+    <section id="systems" className="systems" ref={ref}>
       <div className="inner">
-        <div className="section-eyebrow mono reveal">Work</div>
+        <div className="section-meta-head reveal">
+          <div className="section-eyebrow mono">SYSTEMS &amp; WORK</div>
+          <span className="section-tag mono">CORE DOMAINS</span>
+        </div>
 
         <div className="systems-list">
           {items.map((item, i) => (

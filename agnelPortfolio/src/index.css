@@ -5,23 +5,26 @@
 }
 
 :root {
-  --bg: #0a0b0e;
-  --bg-surface: #101217;
-  --bg-raised: #151820;
+  --bg: #090a0d;
+  --bg-surface: #0f1117;
+  --bg-raised: #141720;
   --bg-card: rgba(255, 255, 255, 0.025);
   --bg-card-hover: rgba(255, 255, 255, 0.045);
 
-  --border: rgba(255, 255, 255, 0.075);
-  --border-hover: rgba(255, 255, 255, 0.18);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(255, 255, 255, 0.09);
+  --border-hover: rgba(255, 255, 255, 0.2);
   --border-highlight: rgba(255, 255, 255, 0.12);
 
-  --text-1: #f4f5f7;
-  --text-2: #8f939e;
-  --text-3: #565964;
+  --text-1: #f4f5f8;
+  --text-2: #989da8;
+  --text-3: #585c68;
 
-  --accent-warm: #e3ded5;
+  --accent-titanium: #d4d7e1;
+  --accent-warm: #e0d8cc;
 
-  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -36,18 +39,19 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text-1);
-  font-family: var(--font);
-  font-size: 15.5px;
-  line-height: 1.7;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.68;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  /* Atmospheric multi-layer background: soft ambient glow + subtle texture */
+
+  /* Architectural subtle grid & top illumination */
   background-image: 
-    radial-gradient(ellipse 65% 360px at 50% 0%, rgba(255, 255, 255, 0.04) 0%, transparent 70%),
-    radial-gradient(circle at 10% 40%, rgba(255, 255, 255, 0.015) 0%, transparent 40%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+    radial-gradient(ellipse 70% 400px at 50% -10%, rgba(255, 255, 255, 0.04) 0%, transparent 70%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 72px 72px, 72px 72px;
 }
 
 ::selection {
@@ -62,11 +66,11 @@ body {
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #232630;
+  background: #20232c;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #353949;
+  background: #323644;
 }
 
 a {
@@ -84,6 +88,10 @@ img {
   font-family: var(--font-mono);
 }
 
+.display-font {
+  font-family: var(--font-display);
+}
+
 /* Page shell */
 .shell {
   min-height: 100vh;
@@ -92,44 +100,60 @@ img {
   position: relative;
 }
 
-/* Centered content column */
+/* Centered content column with generous breathability */
 .inner {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 32px;
   width: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .inner {
     padding: 0 20px;
   }
 }
 
-/* Shared section eyebrow */
-.section-eyebrow {
-  display: inline-flex;
+/* Shared section header */
+.section-meta-head {
+  display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-eyebrow {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-3);
-  margin-bottom: 34px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .section-eyebrow::before {
   content: '';
   display: inline-block;
-  width: 14px;
-  height: 1px;
-  background: var(--border-highlight);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-3);
+  opacity: 0.6;
+}
+
+.section-tag {
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.05em;
 }
 
 /* Scroll-reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(16px);
   transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
 }
 

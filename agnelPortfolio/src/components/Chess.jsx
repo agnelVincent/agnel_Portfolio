@@ -6,9 +6,12 @@ export default function Chess() {
   const ref = useReveal()
 
   return (
-    <section className="chess" ref={ref}>
+    <section id="chess" className="chess" ref={ref}>
       <div className="inner">
-        <div className="section-eyebrow mono reveal">Off the clock</div>
+        <div className="section-meta-head reveal">
+          <div className="section-eyebrow mono">OFF THE CLOCK</div>
+          <span className="section-tag mono">CHESS.COM</span>
+        </div>
 
         <div className="chess-card reveal" style={{ transitionDelay: '0.07s' }}>
           <div className="chess-board-wrap" aria-hidden="true">
@@ -26,9 +29,9 @@ export default function Chess() {
           <div className="chess-text">
             <h3 className="chess-title">Chess</h3>
             <p className="chess-desc">
-              Most evenings when I step away from the terminal, I play chess.
-              Slow games, mostly. The calculation is a good way to unwind from
-              debugging with more debugging.
+              When I step away from terminals and code, I play chess.
+              Mostly slow games and casual blitz. Calculating moves and finding tactical order 
+              is a good way to unwind.
             </p>
             <a
               href={socials.chess}
@@ -36,7 +39,8 @@ export default function Chess() {
               rel="noreferrer"
               className="chess-link mono"
             >
-              @agnelVincent on Chess.com ↗
+              <span>@agnelVincent on Chess.com</span>
+              <span>↗</span>
             </a>
           </div>
         </div>

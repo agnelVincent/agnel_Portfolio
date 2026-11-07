@@ -7,40 +7,44 @@ export default function Hero() {
   return (
     <section className="hero" ref={ref}>
       <div className="inner">
-
-        {/* Typographic anchor */}
-        <div className="hero-name-block reveal">
-          <span className="hero-name-first">Agnel</span>
-          <span className="hero-name-last">Vincent</span>
+        {/* Typographic Hero Header */}
+        <div className="hero-top reveal">
+          <div className="hero-name-row">
+            <h1 className="hero-name display-font">
+              <span className="first-name">Agnel</span>
+              <span className="last-name">Vincent</span>
+            </h1>
+          </div>
+          <div className="hero-meta-badge mono">
+            <span>Software Engineer</span>
+            <span className="meta-sep">·</span>
+            <span>Thrissur, India</span>
+          </div>
         </div>
 
-        {/* Split grid: portrait and conversational opener */}
-        <div className="hero-split">
-          <div className="hero-img-col reveal" style={{ transitionDelay: '0.08s' }}>
-            <div className="hero-img-frame">
+        {/* Hero Content Stage with Single Photo */}
+        <div className="hero-stage">
+          <div className="hero-prose-col reveal" style={{ transitionDelay: '0.08s' }}>
+            <p className="hero-lead">
+              I'm a software engineer, mostly focused on backend systems, data pipelines, and infrastructure.
+            </p>
+            <p className="hero-body">
+              I like when things get into a messy state: broken schemas, failing migrations, or deadlock cascades. 
+              Digging into that state, figuring out why it happened, and untangling it is what keeps this interesting.
+            </p>
+          </div>
+
+          <div className="hero-photo-col reveal" style={{ transitionDelay: '0.14s' }}>
+            <div className="hero-photo-frame">
               <img
                 src="/leetcode_dp.jpg"
                 alt="Agnel Vincent"
-                className="hero-img"
+                className="hero-photo-img"
                 onError={e => { e.target.src = '/agnelyellow.jpg' }}
               />
-              <div className="hero-img-shine" />
             </div>
-            <span className="hero-img-label mono">Thrissur, India</span>
-          </div>
-
-          <div className="hero-text-col reveal" style={{ transitionDelay: '0.16s' }}>
-            <p className="hero-intro">
-              I'm Agnel. Most days you'll find me trying to figure out why something broke.
-            </p>
-            <p className="hero-secondary">
-              When things get into a tangled, messed-up state and fail in unexpected ways, 
-              that's the problem I enjoy the most. Sitting with the pieces, stripping away 
-              assumptions, and putting things back together properly.
-            </p>
           </div>
         </div>
-
       </div>
     </section>
   )
