@@ -1,23 +1,23 @@
 .hero {
-  padding: 80px 0 64px;
+  padding: 96px 0 72px;
 }
 
 .hero-top {
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .hero-name-row {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .hero-name {
-  font-size: clamp(48px, 8.5vw, 96px);
+  font-size: clamp(52px, 8.5vw, 92px);
   font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.15;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25em;
+  gap: 0.22em;
 }
 
 .first-name {
@@ -33,6 +33,7 @@
   color: var(--text-secondary);
 }
 
+/* Precision architectural metadata badge */
 .hero-meta-badge {
   display: inline-flex;
   align-items: center;
@@ -40,8 +41,8 @@
   font-size: 11px;
   font-weight: 500;
   color: var(--text-secondary);
-  letter-spacing: 0.04em;
-  padding: 6px 12px;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
   border-radius: var(--radius-sm);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -56,20 +57,21 @@
 
 .meta-sep {
   color: var(--text-muted);
+  opacity: 0.7;
 }
 
-/* Stage layout */
+/* Stage layout with asymmetric rhythm */
 .hero-stage {
   display: grid;
   grid-template-columns: 1fr 240px;
-  gap: 48px;
+  gap: 56px;
   align-items: flex-start;
 }
 
 .hero-prose-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   max-width: 64ch;
 }
 
@@ -84,11 +86,11 @@
 .hero-body {
   font-size: 15px;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.72;
   color: var(--text-secondary);
 }
 
-/* Photo Column - clean single frame without cards-in-cards */
+/* Hero photo frame: architectural portrait plate */
 .hero-photo-col {
   display: flex;
   justify-content: flex-end;
@@ -97,11 +99,12 @@
 .hero-photo-frame {
   width: 100%;
   max-width: 240px;
-  height: 296px;
-  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--surface);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   transition: border-color var(--duration) var(--ease-out);
 }
 
@@ -114,43 +117,97 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: contrast(1.03) brightness(0.97);
+  transition: filter var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
 }
 
-@media (max-width: 768px) {
+.hero-photo-frame:hover .hero-photo-img {
+  filter: contrast(1.06) brightness(1);
+  transform: scale(1.02);
+}
+
+/* Responsive: tablet and mobile photo centering */
+@media (max-width: 860px) {
   .hero {
-    padding: 48px 0 40px;
+    padding: 64px 0 48px;
   }
 
   .hero-top {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
   .hero-name {
-    font-size: clamp(38px, 10vw, 64px);
-    line-height: 1.18;
+    font-size: clamp(42px, 9vw, 72px);
+    line-height: 1.08;
   }
 
   .hero-stage {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 36px;
+  }
+
+  .hero-prose-col {
+    max-width: 100%;
+  }
+
+  /* Centered photo plate on tablet & mobile */
+  .hero-photo-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .hero-photo-frame {
+    max-width: 250px;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto;
   }
 
   .hero-lead {
-    font-size: 18px;
+    font-size: 18.5px;
     line-height: 1.6;
   }
 
   .hero-body {
     font-size: 14.5px;
-    line-height: 1.68;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 414px) {
+  .hero {
+    padding: 48px 0 36px;
   }
 
-  .hero-photo-col {
-    justify-content: flex-start;
+  .hero-name {
+    font-size: clamp(36px, 10.5vw, 52px);
   }
 
   .hero-photo-frame {
-    max-width: 240px;
-    height: 280px;
+    max-width: 230px;
+    margin: 0 auto;
+  }
+
+  .hero-meta-badge {
+    font-size: 10.5px;
+    padding: 5px 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero {
+    padding: 40px 0 32px;
+  }
+
+  .hero-name {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .hero-photo-frame {
+    max-width: 210px;
+    margin: 0 auto;
   }
 }

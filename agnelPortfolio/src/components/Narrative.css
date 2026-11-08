@@ -1,12 +1,12 @@
 .narrative {
-  padding: 80px 0;
+  padding: 96px 0;
   border-top: 1px solid var(--border);
 }
 
 .narrative-grid {
   display: grid;
   grid-template-columns: 1fr 240px;
-  gap: 48px;
+  gap: 56px;
   align-items: flex-start;
 }
 
@@ -16,35 +16,37 @@
   gap: 20px;
   font-size: 15px;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.72;
   color: var(--text-secondary);
   max-width: 64ch;
 }
 
 .narrative-opener {
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 16.5px;
   font-weight: 500;
-  line-height: 1.65;
+  line-height: 1.68;
+  letter-spacing: -0.01em;
 }
 
-/* Aside with photo and quote */
+/* Aside with photo plate and quote block */
 .narrative-aside {
   display: flex;
   flex-direction: column;
   gap: 24px;
   position: sticky;
-  top: 88px;
+  top: 96px;
 }
 
 .narrative-photo-frame {
   width: 100%;
   max-width: 240px;
-  height: 280px;
-  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--surface);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   transition: border-color var(--duration) var(--ease-out);
 }
 
@@ -57,6 +59,13 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: contrast(1.02) brightness(0.98);
+  transition: filter var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
+}
+
+.narrative-photo-frame:hover .narrative-photo-img {
+  filter: contrast(1.05) brightness(1.02);
+  transform: scale(1.02);
 }
 
 .narrative-quote-card {
@@ -64,20 +73,25 @@
   border: 1px solid var(--border);
   border-left: 2px solid var(--accent);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 20px 22px;
   transition: border-color var(--duration) var(--ease-out);
+}
+
+.narrative-quote-card:hover {
+  border-color: var(--border-hover);
+  border-left-color: var(--accent);
 }
 
 .quote-badge {
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .quote-badge::before {
@@ -86,30 +100,32 @@
   height: 4px;
   border-radius: 50%;
   background: var(--accent);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .quote-text {
   font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--text-secondary);
+  line-height: 1.68;
+  color: var(--text-primary);
   font-style: normal;
   margin: 0;
 }
 
-@media (max-width: 768px) {
+/* Responsive: tablet and mobile photo centering */
+@media (max-width: 860px) {
   .narrative {
-    padding: 48px 0;
+    padding: 64px 0;
   }
 
   .narrative-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 36px;
   }
 
   .narrative-prose {
     font-size: 14.5px;
-    line-height: 1.68;
+    line-height: 1.7;
+    max-width: 100%;
   }
 
   .narrative-opener {
@@ -117,20 +133,52 @@
     line-height: 1.65;
   }
 
+  /* Centered aside content on tablet & mobile */
   .narrative-aside {
     position: static;
     width: 100%;
-    align-items: flex-start;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
   }
 
   .narrative-photo-frame {
-    max-width: 240px;
-    height: 280px;
+    max-width: 250px;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto;
   }
 
   .narrative-quote-card {
     width: 100%;
-    max-width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 414px) {
+  .narrative {
+    padding: 48px 0;
+  }
+
+  .narrative-photo-frame {
+    max-width: 230px;
+    margin: 0 auto;
+  }
+
+  .narrative-quote-card {
+    padding: 16px 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .narrative {
+    padding: 40px 0;
+  }
+
+  .narrative-photo-frame {
+    max-width: 210px;
+    margin: 0 auto;
   }
 }
