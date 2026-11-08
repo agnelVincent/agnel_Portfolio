@@ -1,17 +1,17 @@
 .chess {
-  padding: 112px 0 96px;
+  padding: clamp(64px, 10svh, 112px) 0 clamp(48px, 8svh, 96px);
   position: relative;
 }
 
 .chess-card {
   display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 64px;
+  grid-template-columns: 1fr clamp(300px, 32vw, 400px);
+  gap: clamp(36px, 5vw, 64px);
   align-items: center;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 56px 48px;
+  border-radius: var(--radius-md);
+  padding: clamp(32px, 5svh, 56px) clamp(24px, 4vw, 48px);
   position: relative;
   overflow: hidden;
   transition: border-color var(--duration) var(--ease-out), background-color var(--duration) var(--ease-out);
@@ -28,10 +28,11 @@
   flex-direction: column;
   align-items: flex-start;
   z-index: 2;
+  min-width: 0;
 }
 
 .chess-title {
-  font-size: clamp(32px, 3.8vw, 44px);
+  font-size: clamp(30px, 3.5vw, 42px);
   font-weight: 400;
   letter-spacing: -0.025em;
   line-height: 1.2;
@@ -40,12 +41,12 @@
 }
 
 .chess-desc {
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: 300;
   line-height: 1.74;
   color: var(--text-secondary);
   margin-bottom: 28px;
-  max-width: 54ch;
+  max-width: 52ch;
 }
 
 .chess-link {
@@ -80,12 +81,13 @@
   transform: translate(3px, -3px);
 }
 
-/* Feature Chessboard Stage: Grand, oversized, bleeding towards edge */
+/* Feature Chessboard Stage: Balanced proportions, clean rectangular containment */
 .chess-board-stage {
   display: flex;
   justify-content: flex-end;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .chess-board-wrap {
@@ -94,13 +96,12 @@
   grid-template-rows: repeat(8, 1fr);
   aspect-ratio: 1;
   width: 100%;
-  max-width: 420px;
-  border-radius: var(--radius-md);
+  max-width: 400px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--bg);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-  margin-right: -24px;
   transition: transform var(--duration) var(--ease-editorial);
 }
 
@@ -131,31 +132,29 @@
   z-index: 3;
 }
 
-/* Responsive: Centered chessboard & full-touch action */
-@media (max-width: 920px) {
+/* Tablet & Mobile: Centered chessboard & full-touch action */
+@media (max-width: 960px) {
   .chess {
-    padding: 72px 0 56px;
+    padding: 64px 0 56px;
   }
 
   .chess-card {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 40px 32px;
+    gap: 36px;
+    padding: 36px 24px;
   }
 
   .chess-board-stage {
     justify-content: center;
-    width: 100%;
   }
 
   .chess-board-wrap {
-    max-width: 340px;
-    margin-right: 0;
+    max-width: 320px;
     margin: 0 auto;
   }
 
   .chess-title {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .chess-desc {
@@ -171,24 +170,24 @@
 
 @media (max-width: 480px) {
   .chess {
-    padding: 48px 0 40px;
+    padding: 44px 0 36px;
   }
 
   .chess-card {
-    padding: 28px 20px;
-    gap: 32px;
+    padding: 24px 16px;
+    gap: 28px;
   }
 
   .chess-board-wrap {
-    max-width: 280px;
+    max-width: 270px;
   }
 
   .chess-title {
-    font-size: 24px;
+    font-size: 23px;
   }
 
   .chess-desc {
-    font-size: 14.5px;
+    font-size: 14px;
     line-height: 1.7;
   }
 }

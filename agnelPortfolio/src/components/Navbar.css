@@ -2,8 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 20px 0;
-  background-color: rgba(13, 14, 18, 0.82);
+  padding: 18px 0;
+  background-color: rgba(13, 14, 18, 0.84);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
@@ -13,14 +13,14 @@
 .nav.scrolled {
   border-bottom-color: var(--border);
   padding: 12px 0;
-  background-color: rgba(13, 14, 18, 0.94);
+  background-color: rgba(13, 14, 18, 0.95);
 }
 
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: 24px;
 }
 
 .nav-brand {
@@ -28,7 +28,9 @@
   align-items: center;
 }
 
+/* Consistent Geist Mono typography across all nav elements */
 .nav-name {
+  font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -59,6 +61,7 @@
   display: flex;
   align-items: center;
   gap: 32px;
+  font-family: var(--font-mono);
   font-size: 12.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -95,12 +98,14 @@
   transform: scaleX(1);
 }
 
+/* Right-side links: unified with Geist Mono */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 20px;
+  font-family: var(--font-mono);
   font-size: 12.5px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .nav-links a {
@@ -109,7 +114,7 @@
   align-items: center;
   gap: 4px;
   min-height: 44px;
-  padding: 0 6px;
+  padding: 0 4px;
   position: relative;
   transition: color var(--duration-fast) var(--ease-out);
 }
@@ -122,8 +127,8 @@
   content: '';
   position: absolute;
   bottom: 10px;
-  left: 6px;
-  right: 6px;
+  left: 4px;
+  right: 4px;
   height: 1px;
   background: var(--accent);
   transform: scaleX(0);
@@ -137,11 +142,11 @@
 
 @media (max-width: 860px) {
   .nav {
-    padding: 12px 0;
+    padding: 10px 0;
   }
 
   .nav.scrolled {
-    padding: 10px 0;
+    padding: 8px 0;
   }
 
   .nav-anchors {
@@ -150,13 +155,13 @@
 
   .nav-links {
     gap: 12px;
-    font-size: 12px;
+    font-size: 11.5px;
   }
 }
 
 @media (max-width: 414px) {
   .nav-links {
     gap: 8px;
-    font-size: 11.5px;
+    font-size: 11px;
   }
 }

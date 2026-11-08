@@ -37,7 +37,7 @@ export default function Navbar() {
             <a href="#systems">Systems</a>
           </div>
 
-          <nav className="nav-links">
+          <nav className="nav-links mono">
             <a href={socials.github} target="_blank" rel="noreferrer">GitHub ↗</a>
             <a href={socials.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
             <a href={`mailto:${socials.email}`}>Email ↗</a>

@@ -31,11 +31,10 @@
   --accent-hover: #f0a24a;
   --accent-border: rgba(229, 147, 58, 0.35);
 
-  /* Precise radii scale */
+  /* Small, consistent radii scale (4px to 12px) - no arch or pill shapes */
   --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-arch: 180px 180px 24px 24px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
 
   /* Typography: Strict 2-font limit (Fraunces Display Serif + Geist Mono) */
   --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -118,7 +117,7 @@ img {
 
 /* Page shell with faint film grain texture overlay */
 .shell {
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -136,9 +135,9 @@ img {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Generous editorial container on 8px grid */
+/* Capped content width: 1200px max, perfectly centered on 1920px+ displays */
 .inner {
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px;
   width: 100%;
@@ -164,7 +163,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 48px;
+  margin-bottom: clamp(32px, 5svh, 48px);
   padding-bottom: 16px;
   position: relative;
 }
@@ -251,20 +250,11 @@ img {
   .inner {
     padding: 0 28px;
   }
-
-  .section-meta-head {
-    margin-bottom: 36px;
-    padding-bottom: 14px;
-  }
 }
 
 @media (max-width: 414px) {
   .inner {
     padding: 0 20px;
-  }
-
-  .section-meta-head {
-    margin-bottom: 28px;
   }
 }
 

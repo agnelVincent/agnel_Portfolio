@@ -1,12 +1,12 @@
 .narrative {
-  padding: 112px 0 96px;
+  padding: clamp(64px, 10svh, 112px) 0 clamp(48px, 8svh, 96px);
   position: relative;
 }
 
 .narrative-grid {
   display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 72px;
+  grid-template-columns: 1fr 300px;
+  gap: clamp(36px, 5vw, 72px);
   align-items: flex-start;
 }
 
@@ -14,7 +14,7 @@
 .narrative-prose {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
   max-width: 64ch;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .narrative-opener {
-  font-size: clamp(19px, 2vw, 22px) !important;
+  font-size: clamp(19px, 1.8vw, 22px) !important;
   font-weight: 400 !important;
   line-height: 1.58 !important;
   letter-spacing: -0.01em;
@@ -49,26 +49,26 @@
   color: var(--text-primary) !important;
 }
 
-/* Pinned Aside with Secondary Photo & Quote Card */
+/* Pinned Aside on Desktop (>1024px) */
 .narrative-aside {
   display: flex;
   flex-direction: column;
   gap: 28px;
   position: sticky;
-  top: 104px;
+  top: 96px;
   align-self: flex-start;
 }
 
-/* Secondary Photo Plate: Clearly smaller than Hero photo for visual hierarchy */
+/* Photo Treatment: Plain rectangular frame matching Hero photo (same radius, same hairline, natural tone) */
 .narrative-photo-frame {
   width: 100%;
-  max-width: 220px;
+  max-width: 300px;
   aspect-ratio: 4 / 5;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--surface);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   transition: border-color var(--duration) var(--ease-out);
 }
 
@@ -80,13 +80,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 18%;
   display: block;
-  filter: sepia(0.06) contrast(1.04) brightness(0.97) saturate(0.95);
+  filter: contrast(1.03) brightness(0.99);
   transition: filter var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
 }
 
 .narrative-photo-frame:hover .narrative-photo-img {
-  filter: sepia(0) contrast(1.02) brightness(1.02) saturate(1);
+  filter: contrast(1.05) brightness(1.01);
   transform: scale(1.02);
 }
 
@@ -137,20 +138,20 @@
   margin: 0;
 }
 
-/* Responsive: Dedicated layout with centered photos */
-@media (max-width: 860px) {
+/* Tablet & Mobile (<=1024px): Static layout without sticky aside, photo centered */
+@media (max-width: 1024px) {
   .narrative {
-    padding: 72px 0 56px;
+    padding: 64px 0 56px;
   }
 
   .narrative-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
 
   .narrative-prose {
     max-width: 100%;
-    gap: 24px;
+    gap: 22px;
   }
 
   .narrative-prose p {
@@ -171,12 +172,13 @@
   }
 
   .narrative-photo-frame {
-    max-width: 240px;
+    width: 65%;
+    max-width: 320px;
     margin: 0 auto;
   }
 
   .narrative-quote-card {
-    max-width: 480px;
+    max-width: 520px;
     width: 100%;
     margin: 0 auto;
   }
@@ -184,7 +186,7 @@
 
 @media (max-width: 480px) {
   .narrative {
-    padding: 48px 0 40px;
+    padding: 44px 0 36px;
   }
 
   .narrative-prose p {
@@ -195,6 +197,11 @@
 
   .narrative-opener {
     font-size: 18px !important;
+  }
+
+  .narrative-photo-frame {
+    width: 78%;
+    max-width: 270px;
   }
 
   .narrative-quote-card {

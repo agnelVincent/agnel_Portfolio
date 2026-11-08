@@ -6,10 +6,10 @@ export default function Hero() {
 
   return (
     <section className="hero" ref={ref}>
-      <div className="inner">
-        {/* Enormous Typographic Hero Header with Line-by-Line Mask Reveal */}
-        <div className="hero-top">
-          <div className="hero-name-row">
+      <div className="inner hero-inner">
+        <div className="hero-grid">
+          {/* Typographic Hero Header */}
+          <div className="hero-header-block">
             <h1 className="hero-name display-font">
               <span className="hero-name-mask">
                 <span className="first-name">Agnel</span>
@@ -19,18 +19,32 @@ export default function Hero() {
               </span>
             </h1>
           </div>
-          <div className="hero-meta-row reveal" style={{ transitionDelay: '0.18s' }}>
+
+          {/* Primary Photo Plate: Clean rectangular portrait with natural framing */}
+          <div className="hero-photo-block reveal" style={{ transitionDelay: '0.12s' }}>
+            <div className="hero-photo-frame">
+              <img
+                src="/leetcode_dp.jpg"
+                alt="Agnel Vincent"
+                width="857"
+                height="832"
+                className="hero-photo-img"
+                onError={e => { e.target.src = '/agnelyellow.jpg' }}
+              />
+            </div>
+          </div>
+
+          {/* Architectural Metadata Badge */}
+          <div className="hero-meta-block reveal" style={{ transitionDelay: '0.08s' }}>
             <div className="hero-meta-badge mono">
               <span>Software Engineer</span>
               <span className="meta-sep">·</span>
               <span>Thrissur, India</span>
             </div>
           </div>
-        </div>
 
-        {/* Asymmetric Hero Stage: Broken Grid with Primary Arched Portrait Plate */}
-        <div className="hero-stage">
-          <div className="hero-prose-col reveal" style={{ transitionDelay: '0.1s' }}>
+          {/* Intro Prose Column */}
+          <div className="hero-prose-block reveal" style={{ transitionDelay: '0.16s' }}>
             <p className="hero-lead">
               I'm a software engineer working on backend systems, data pipelines, and infrastructure.
             </p>
@@ -40,17 +54,6 @@ export default function Hero() {
             <p className="hero-body">
               I like when things get into a messy state. Untangling that state is what keeps this interesting..
             </p>
-          </div>
-
-          <div className="hero-photo-col reveal" style={{ transitionDelay: '0.2s' }}>
-            <div className="hero-photo-frame">
-              <img
-                src="/leetcode_dp.jpg"
-                alt="Agnel Vincent"
-                className="hero-photo-img"
-                onError={e => { e.target.src = '/agnelyellow.jpg' }}
-              />
-            </div>
           </div>
         </div>
       </div>

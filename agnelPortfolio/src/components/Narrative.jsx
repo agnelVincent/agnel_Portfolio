@@ -42,7 +42,7 @@ export default function Narrative() {
         </div>
 
         <div className="narrative-grid">
-          {/* Scrolling Prose Column with Dynamic Paragraph Dimming */}
+          {/* Scrolling Prose Column with Dynamic Paragraph Focus */}
           <div className="narrative-prose reveal" ref={proseRef}>
             <p className={`narrative-opener ${activeIdx === 0 ? 'is-active' : ''}`}>
               For a long time, I had no direction. I tried different things, failed at
@@ -67,12 +67,14 @@ export default function Narrative() {
             </p>
           </div>
 
-          {/* Pinned Aside: Secondary Architectural Photo + Quote Card */}
+          {/* Aside: Secondary Photo Plate + Quote Card */}
           <div className="narrative-aside reveal" style={{ transitionDelay: '0.12s' }}>
             <div className="narrative-photo-frame">
               <img
                 src="/agnelyellow.jpg"
                 alt="Agnel Vincent"
+                width="960"
+                height="1280"
                 className="narrative-photo-img"
                 onError={e => { e.target.src = '/leetcode_dp.jpg' }}
               />
