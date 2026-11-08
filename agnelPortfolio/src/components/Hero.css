@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(64px, 10svh, 96px) 0 clamp(40px, 6svh, 64px);
+  padding: clamp(48px, 7svh, 80px) 0 clamp(36px, 5svh, 56px);
   position: relative;
   box-sizing: border-box;
 }
@@ -23,7 +23,7 @@
 
 /* Left Column Blocks: Sharing a strict left datum line */
 .hero-header-block {
-  grid-column: 1 / 8;
+  grid-column: 1 / 9;
   grid-row: 1;
   margin-bottom: clamp(16px, 2.4svh, 24px);
 }
@@ -43,9 +43,9 @@
   max-width: 62ch;
 }
 
-/* Right Column Photo Block: Top aligned to name cap-height, bottom balanced with intro */
+/* Right Column Photo Block: Sized by height, never taller than text column */
 .hero-photo-block {
-  grid-column: 8 / 13;
+  grid-column: 9 / 13;
   grid-row: 1 / 4;
   display: flex;
   justify-content: flex-end;
@@ -53,14 +53,15 @@
   width: 100%;
 }
 
-/* Enormous viewport-scaled display typography */
+/* Large display typography: scaled to fit beside the photo without overlap */
 .hero-name {
-  font-size: clamp(3.2rem, 5.8vw, 5.8rem);
+  font-size: clamp(3.8rem, 7.2vw, 7.6rem);
   font-weight: 400;
   letter-spacing: -0.04em;
-  line-height: 0.95;
+  line-height: 0.94;
   display: flex;
   flex-direction: column;
+  cursor: default;
 }
 
 /* Line-by-line mask reveal on page load */
@@ -97,11 +98,19 @@
   font-weight: 400;
 }
 
+/* Restored name hover effect from git history */
 .last-name {
   font-style: italic;
   font-weight: 300;
-  color: var(--accent);
-  transition: opacity var(--duration) var(--ease-out);
+  color: var(--text-secondary);
+  transition: color var(--duration) var(--ease-out);
+  margin-left: 0.04em;
+}
+
+@media (hover: hover) {
+  .hero-name:hover .last-name {
+    color: var(--accent);
+  }
 }
 
 /* Architectural metadata badge */
@@ -151,11 +160,11 @@
   color: var(--text-secondary);
 }
 
-/* Photo Treatment: Plain rectangular portrait frame with small consistent 6px radius */
+/* Photo Treatment: Sized by height on desktop (min(60svh, 460px)), 6px radius, 1px border */
 .hero-photo-frame {
-  width: 100%;
-  max-width: 440px;
+  height: min(60svh, 460px);
   aspect-ratio: 4 / 5;
+  width: auto;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -183,18 +192,7 @@
   transform: scale(1.02);
 }
 
-/* Breakpoint 1024px to 1280px: Keep 2-column hero with fluid scaling */
-@media (max-width: 1280px) and (min-width: 1025px) {
-  .hero-name {
-    font-size: clamp(3rem, 5.2vw, 4.8rem);
-  }
-
-  .hero-photo-frame {
-    max-width: 380px;
-  }
-}
-
-/* Breakpoint 768px (Tablet portrait): Dedicated composition */
+/* Breakpoint 768px (Tablet portrait): Dedicated composition - strictly unchanged */
 /* Single column order: Name -> Centered Photo (60-70% content width) -> Badge -> Intro */
 @media (max-width: 1024px) {
   .hero {
@@ -227,8 +225,10 @@
   }
 
   .hero-photo-frame {
+    height: auto;
     width: 65%;
     max-width: 400px;
+    aspect-ratio: 4 / 5;
     margin: 0 auto;
   }
 
@@ -247,7 +247,7 @@
   }
 }
 
-/* Breakpoint 360px to 414px (Phone): Tighter rhythm, name and photo visible on first screen */
+/* Breakpoint 360px to 414px (Phone): Tighter rhythm, name and photo visible on first screen - strictly unchanged */
 @media (max-width: 480px) {
   .hero {
     padding: 44px 0 40px;
@@ -269,6 +269,8 @@
   .hero-photo-frame {
     width: 78%;
     max-width: 270px;
+    height: auto;
+    aspect-ratio: 4 / 5;
     margin: 0 auto;
   }
 
@@ -303,5 +305,6 @@
 
   .hero-photo-frame {
     max-width: 240px;
+    height: auto;
   }
 }

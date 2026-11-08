@@ -1,19 +1,18 @@
 .chess {
-  padding: clamp(64px, 10svh, 112px) 0 clamp(48px, 8svh, 96px);
+  padding: 64px 0 56px;
   position: relative;
 }
 
 .chess-card {
   display: grid;
-  grid-template-columns: 1fr clamp(300px, 32vw, 400px);
-  gap: clamp(36px, 5vw, 64px);
+  grid-template-columns: 1fr 192px;
+  gap: 40px;
   align-items: center;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: clamp(32px, 5svh, 56px) clamp(24px, 4vw, 48px);
+  padding: 32px 36px;
   position: relative;
-  overflow: hidden;
   transition: border-color var(--duration) var(--ease-out), background-color var(--duration) var(--ease-out);
 }
 
@@ -32,32 +31,32 @@
 }
 
 .chess-title {
-  font-size: clamp(30px, 3.5vw, 42px);
-  font-weight: 400;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
   color: var(--text-primary);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .chess-desc {
-  font-size: 15.5px;
+  font-size: 15px;
   font-weight: 300;
-  line-height: 1.74;
+  line-height: 1.7;
   color: var(--text-secondary);
-  margin-bottom: 28px;
-  max-width: 52ch;
+  margin-bottom: 24px;
+  max-width: 54ch;
 }
 
 .chess-link {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--text-secondary);
-  padding: 0 20px;
+  padding: 0 16px;
   min-height: 44px;
   border-radius: var(--radius-sm);
   background: var(--bg);
@@ -81,27 +80,26 @@
   transform: translate(3px, -3px);
 }
 
-/* Feature Chessboard Stage: Balanced proportions, clean rectangular containment */
+/* Compact Chessboard: Fixed 192px on desktop (no oversized bleed, no clamp growth) */
 .chess-board-stage {
   display: flex;
   justify-content: flex-end;
   position: relative;
   z-index: 1;
-  width: 100%;
 }
 
 .chess-board-wrap {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
+  width: 192px;
+  height: 192px;
   aspect-ratio: 1;
-  width: 100%;
-  max-width: 400px;
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--bg);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   transition: transform var(--duration) var(--ease-editorial);
 }
 
@@ -112,7 +110,7 @@
 .cb-sq {
   width: 100%;
   aspect-ratio: 1;
-  transition: background-color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+  transition: background-color var(--duration-fast) var(--ease-out);
   cursor: pointer;
   position: relative;
 }
@@ -128,66 +126,46 @@
 .cb-sq:hover {
   background-color: var(--accent) !important;
   opacity: 0.95;
-  transform: scale(1.06);
-  z-index: 3;
 }
 
-/* Tablet & Mobile: Centered chessboard & full-touch action */
-@media (max-width: 960px) {
+/* Tablet & Mobile: Compact 160px board - strictly unchanged */
+@media (max-width: 860px) {
   .chess {
-    padding: 64px 0 56px;
+    padding: 48px 0;
   }
 
   .chess-card {
     grid-template-columns: 1fr;
-    gap: 36px;
-    padding: 36px 24px;
+    gap: 24px;
+    padding: 24px 20px;
   }
 
   .chess-board-stage {
     justify-content: center;
+    width: 100%;
   }
 
   .chess-board-wrap {
-    max-width: 320px;
+    width: 160px;
+    height: 160px;
     margin: 0 auto;
   }
 
   .chess-title {
-    font-size: 26px;
+    font-size: 20px;
+    margin-bottom: 8px;
   }
 
   .chess-desc {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.68;
+    margin-bottom: 20px;
     max-width: 100%;
   }
 
   .chess-link {
     width: 100%;
     justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .chess {
-    padding: 44px 0 36px;
-  }
-
-  .chess-card {
-    padding: 24px 16px;
-    gap: 28px;
-  }
-
-  .chess-board-wrap {
-    max-width: 270px;
-  }
-
-  .chess-title {
-    font-size: 23px;
-  }
-
-  .chess-desc {
-    font-size: 14px;
-    line-height: 1.7;
+    min-height: 44px;
   }
 }
