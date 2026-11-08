@@ -1,71 +1,49 @@
-import { useState, useEffect } from 'react'
-import '../styles/Navbar.css'
-
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-]
+import { useEffect, useState } from 'react'
+import { socials } from '../data/Socials'
+import './Navbar.css'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handler)
-    return () => window.removeEventListener('scroll', handler)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+      const total = document.documentElement.scrollHeight - window.innerHeight
+      if (total > 0) {
+        setScrollProgress(Math.min(1, Math.max(0, window.scrollY / total)))
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-      <div className="navbar__inner">
-        <a href="#" className="navbar__logo">
-          <span className="navbar__logo-bracket">&lt;</span>
-          AV
-          <span className="navbar__logo-bracket">/&gt;</span>
-        </a>
+    <>
+      <div
+        className="scroll-progress-bar"
+        style={{ transform: `scaleX(${scrollProgress})` }}
+        aria-hidden="true"
+      />
+      <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
+        <div className="inner nav-inner">
+          <div className="nav-brand">
+            <span className="nav-name mono">Tony</span>
+          </div>
 
-        <ul className="navbar__links">
-          {navLinks.map(link => (
-            <li key={link.label}>
-              <a href={link.href} className="navbar__link">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+          <div className="nav-anchors mono">
+            <a href="#story">Journey</a>
+            <a href="#systems">Systems</a>
+          </div>
 
-        <a href="#contact" className="navbar__cta">
-          Say Hi
-        </a>
-
-        <button
-          className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span /><span /><span />
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      <div className={`navbar__mobile ${menuOpen ? 'open' : ''}`}>
-        {navLinks.map(link => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="navbar__mobile-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            {link.label}
-          </a>
-        ))}
-        <a href="#contact" className="navbar__mobile-cta" onClick={() => setMenuOpen(false)}>
-          Say Hi
-        </a>
-      </div>
-    </nav>
+          <nav className="nav-links mono">
+            <a href={socials.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href={socials.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href={`mailto:${socials.email}`}>Email ↗</a>
+          </nav>
+        </div>
+      </header>
+    </>
   )
 }
-

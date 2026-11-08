@@ -1,0 +1,310 @@
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 7svh, 80px) 0 clamp(36px, 5svh, 56px);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.hero-inner {
+  width: 100%;
+}
+
+/* 12-Column Desktop Stage: Balanced side-by-side composition */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: clamp(28px, 4vw, 56px);
+  row-gap: 0;
+  align-items: start;
+}
+
+/* Left Column Blocks: Sharing a strict left datum line */
+.hero-header-block {
+  grid-column: 1 / 9;
+  grid-row: 1;
+  margin-bottom: clamp(16px, 2.4svh, 24px);
+}
+
+.hero-meta-block {
+  grid-column: 1 / 8;
+  grid-row: 2;
+  margin-bottom: clamp(20px, 3svh, 32px);
+}
+
+.hero-prose-block {
+  grid-column: 1 / 8;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.8svh, 20px);
+  max-width: 62ch;
+}
+
+/* Right Column Photo Block: Sized by height, never taller than text column */
+.hero-photo-block {
+  grid-column: 9 / 13;
+  grid-row: 1 / 4;
+  display: flex;
+  justify-content: flex-end;
+  align-self: start;
+  width: 100%;
+}
+
+/* Large display typography: scaled to fit beside the photo without overlap */
+.hero-name {
+  font-size: clamp(3.8rem, 7.2vw, 7.6rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.94;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+/* Line-by-line mask reveal on page load */
+.hero-name-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.05em;
+}
+
+.hero-name-mask > span {
+  display: inline-block;
+  animation: heroMaskSlide 0.85s var(--ease-editorial) forwards;
+}
+
+.hero-name-mask:nth-child(2) > span {
+  animation-delay: 0.12s;
+  animation-fill-mode: both;
+}
+
+@keyframes heroMaskSlide {
+  from {
+    transform: translateY(115%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.first-name {
+  color: var(--text-primary);
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Restored name hover effect from git history */
+.last-name {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-secondary);
+  transition: color var(--duration) var(--ease-out);
+  margin-left: 0.04em;
+}
+
+@media (hover: hover) {
+  .hero-name:hover .last-name {
+    color: var(--accent);
+  }
+}
+
+/* Architectural metadata badge */
+.hero-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 10px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+  cursor: default;
+}
+
+.hero-meta-badge:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.meta-sep {
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+/* Intro prose */
+.hero-lead {
+  font-size: clamp(19px, 1.6vw, 23px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+  font-family: var(--font-serif);
+}
+
+.hero-body {
+  font-size: clamp(14.5px, 1.1vw, 15.5px);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Photo Treatment: Sized by height on desktop (min(60svh, 460px)), 6px radius, 1px border */
+.hero-photo-frame {
+  height: min(60svh, 460px);
+  aspect-ratio: 4 / 5;
+  width: auto;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: border-color var(--duration) var(--ease-out);
+}
+
+.hero-photo-frame:hover {
+  border-color: var(--accent-border);
+}
+
+.hero-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  filter: contrast(1.03) brightness(0.99);
+  transition: filter var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
+}
+
+.hero-photo-frame:hover .hero-photo-img {
+  filter: contrast(1.05) brightness(1.01);
+  transform: scale(1.02);
+}
+
+/* Breakpoint 768px (Tablet portrait): Dedicated composition - strictly unchanged */
+/* Single column order: Name -> Centered Photo (60-70% content width) -> Badge -> Intro */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding: 64px 0 56px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    row-gap: 28px;
+  }
+
+  .hero-header-block {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    order: 1;
+    margin-bottom: 0;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 9vw, 5.2rem);
+  }
+
+  .hero-photo-block {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    order: 2;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-photo-frame {
+    height: auto;
+    width: 65%;
+    max-width: 400px;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto;
+  }
+
+  .hero-meta-block {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    order: 3;
+    margin-bottom: 0;
+  }
+
+  .hero-prose-block {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    order: 4;
+    max-width: 100%;
+  }
+}
+
+/* Breakpoint 360px to 414px (Phone): Tighter rhythm, name and photo visible on first screen - strictly unchanged */
+@media (max-width: 480px) {
+  .hero {
+    padding: 44px 0 40px;
+  }
+
+  .hero-grid {
+    row-gap: 20px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.6rem, 12.5vw, 3.8rem);
+    letter-spacing: -0.035em;
+  }
+
+  .hero-photo-block {
+    width: 100%;
+  }
+
+  .hero-photo-frame {
+    width: 78%;
+    max-width: 270px;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto;
+  }
+
+  .hero-meta-badge {
+    font-size: 10.5px;
+    padding: 6px 14px;
+    gap: 8px;
+  }
+
+  .hero-lead {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .hero-body {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+}
+
+/* Short landscape mobile viewports (~400px tall) */
+@media (max-height: 520px) {
+  .hero {
+    min-height: auto;
+    padding: 32px 0 40px;
+    justify-content: flex-start;
+  }
+
+  .hero-grid {
+    row-gap: 20px;
+  }
+
+  .hero-photo-frame {
+    max-width: 240px;
+    height: auto;
+  }
+}

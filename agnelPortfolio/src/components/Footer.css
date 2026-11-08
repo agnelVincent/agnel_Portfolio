@@ -1,0 +1,115 @@
+.footer {
+  margin-top: clamp(64px, 12svh, 128px);
+  padding: 48px 0 clamp(48px, 8svh, 80px);
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.footer-id {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-id::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.85;
+}
+
+.footer-id:hover {
+  color: var(--accent);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 0 4px;
+  position: relative;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 4px;
+  right: 4px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+.footer-links a:hover::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 860px) {
+  .footer {
+    margin-top: 56px;
+    padding: 36px 0 56px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    margin-top: 44px;
+    padding: 28px 0 40px;
+  }
+
+  .footer-links {
+    gap: 6px 14px;
+    font-size: 11.5px;
+  }
+}

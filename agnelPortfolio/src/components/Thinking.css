@@ -1,0 +1,65 @@
+.thinking {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.thinking-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%);
+  border: 1px solid var(--border-card);
+  border-left: 2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 14px 32px -8px rgba(0, 0, 0, 0.55);
+  transition: transform 320ms var(--ease-out), border-color 300ms ease, background 300ms ease, box-shadow 320ms ease;
+}
+
+.thinking-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.24);
+  border-left-color: rgba(56, 189, 248, 0.7);
+  background: radial-gradient(ellipse 80% 200px at 50% -20px, rgba(56, 189, 248, 0.06) 0%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.008) 100%);
+  box-shadow: 
+    0 1px 0 rgba(56, 189, 248, 0.2) inset,
+    0 22px 46px -10px rgba(0, 0, 0, 0.75),
+    0 0 32px rgba(56, 189, 248, 0.06);
+}
+
+.thinking-primary {
+  font-size: 16.5px;
+  line-height: 1.76;
+  color: #f3f5f8;
+  letter-spacing: -0.01em;
+}
+
+.thinking-secondary {
+  font-size: 15px;
+  line-height: 1.78;
+  color: var(--text-2);
+}
+
+@media (max-width: 640px) {
+  .thinking {
+    padding: 52px 0;
+  }
+
+  .thinking-card {
+    padding: 22px 18px;
+    gap: 14px;
+    border-radius: 14px;
+  }
+
+  .thinking-primary {
+    font-size: 15px;
+    line-height: 1.68;
+  }
+
+  .thinking-secondary {
+    font-size: 13.8px;
+    line-height: 1.7;
+  }
+}

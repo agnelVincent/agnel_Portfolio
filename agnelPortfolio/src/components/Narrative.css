@@ -1,0 +1,210 @@
+.narrative {
+  padding: clamp(64px, 10svh, 112px) 0 clamp(48px, 8svh, 96px);
+  position: relative;
+}
+
+.narrative-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: flex-start;
+}
+
+/* Scrolling Prose Column with Dynamic Reading Focus */
+.narrative-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 64ch;
+}
+
+.narrative-prose p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.74;
+  color: var(--text-muted);
+  opacity: 0.38;
+  transition: opacity var(--duration) var(--ease-out), color var(--duration) var(--ease-out);
+  cursor: default;
+}
+
+.narrative-prose p.is-active {
+  opacity: 1;
+  color: var(--text-secondary);
+}
+
+.narrative-prose p:hover {
+  opacity: 0.95;
+  color: var(--text-primary);
+}
+
+.narrative-opener {
+  font-size: clamp(19px, 1.8vw, 22px) !important;
+  font-weight: 400 !important;
+  line-height: 1.58 !important;
+  letter-spacing: -0.01em;
+}
+
+.narrative-opener.is-active {
+  color: var(--text-primary) !important;
+}
+
+/* Pinned Aside on Desktop (>1024px) */
+.narrative-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: sticky;
+  top: 96px;
+  align-self: flex-start;
+}
+
+/* Photo Treatment: Plain rectangular frame matching Hero photo (same radius, same hairline, natural tone) */
+.narrative-photo-frame {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: border-color var(--duration) var(--ease-out);
+}
+
+.narrative-photo-frame:hover {
+  border-color: var(--accent-border);
+}
+
+.narrative-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  filter: contrast(1.03) brightness(0.99);
+  transition: filter var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
+}
+
+.narrative-photo-frame:hover .narrative-photo-img {
+  filter: contrast(1.05) brightness(1.01);
+  transform: scale(1.02);
+}
+
+/* Quote card with amber hairline border accent */
+.narrative-quote-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  transition: border-color var(--duration) var(--ease-out), background-color var(--duration) var(--ease-out);
+}
+
+.narrative-quote-card:hover {
+  border-color: var(--border-hover);
+  border-left-color: var(--accent);
+  background-color: var(--surface-card);
+}
+
+.quote-badge {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quote-badge::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.9;
+}
+
+.quote-text {
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Tablet & Mobile (<=1024px): Static layout without sticky aside, photo centered */
+@media (max-width: 1024px) {
+  .narrative {
+    padding: 64px 0 56px;
+  }
+
+  .narrative-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .narrative-prose {
+    max-width: 100%;
+    gap: 22px;
+  }
+
+  .narrative-prose p {
+    opacity: 0.75;
+    color: var(--text-secondary);
+  }
+
+  .narrative-prose p.is-active {
+    opacity: 1;
+    color: var(--text-primary);
+  }
+
+  .narrative-aside {
+    position: static;
+    width: 100%;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .narrative-photo-frame {
+    width: 65%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .narrative-quote-card {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .narrative {
+    padding: 44px 0 36px;
+  }
+
+  .narrative-prose p {
+    font-size: 15px;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  .narrative-opener {
+    font-size: 18px !important;
+  }
+
+  .narrative-photo-frame {
+    width: 78%;
+    max-width: 270px;
+  }
+
+  .narrative-quote-card {
+    padding: 18px 20px;
+  }
+}
