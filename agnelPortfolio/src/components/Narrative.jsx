@@ -13,29 +13,29 @@ export default function Narrative() {
         </div>
 
         <div className="narrative-grid">
-          <div className="narrative-prose reveal">
-            <p className="narrative-opener">
-              For a long time I had no direction at all. I tried different things,
-              failed at most of them, and had no clear roadmap. I did not know what I wanted to do or where I was going.
-            </p>
-            <p>
-              Growing up, I never owned a computer and was genuinely terrified of them. 
-              I had this deep insecurity that if I touched one, I would press the wrong key, break something, 
-              and shut the whole machine down. When people around me used computers effortlessly, 
-              I felt so exposed by not knowing anything that I would lie and make excuses, pretending 
-              that screens gave me a headache just to avoid using them.
-            </p>
-            <p>
-              After cycling through enough dead ends, I made an irrational decision: I went straight 
-              toward the thing that scared me the most. I picked software engineering blindly, 
-              without any background, without knowing what it actually meant.
-            </p>
-            <p>
-              Once I started exploring it, it held my attention in a way nothing else had. I started 
-              from the absolute basics, broke things on purpose, worked through the confusion, and kept going. 
-              The machine I used to be terrified of became the craft I enjoy every single day.
-            </p>
-          </div>
+<div className="narrative-prose reveal">
+  <p className="narrative-opener">
+    For a long time, I had no direction. I tried different things, failed at
+    most of them, and never had a roadmap.
+  </p>
+  <p>
+    I grew up without a computer of my own, so while everyone around me used
+    them effortlessly, I was always a step behind. What I hated most was being
+    seen that way. I avoided computers, made excuses, and even claimed screens
+    gave me headaches, just so no one would notice how little I knew.
+  </p>
+  <p>
+    After enough dead ends, I made a decision that made no practical sense: I
+    walked straight toward the thing I feared most. I chose software
+    engineering with no background and only a vague idea of what it involved.
+  </p>
+  <p>
+    It held my attention like nothing else had. I started from the absolute
+    basics, broke things on purpose, and stayed with the confusion until it
+    cleared. What I once avoided became the thing I choose every day. That’s
+    the motive I carry now: do what you fear the most.
+  </p>
+</div>
 
           <div className="narrative-aside reveal" style={{ transitionDelay: '0.12s' }}>
             <div className="narrative-photo-frame">
@@ -47,9 +47,9 @@ export default function Narrative() {
               />
             </div>
             <div className="narrative-quote-card">
+              <div className="quote-badge mono">APPROACH</div>
               <blockquote className="quote-text">
-                "After cycling through enough failures, I made a decision that made no logical sense: 
-                I went straight toward the single thing that scared me the most."
+                "Why before how. If the reason isn't clear, the solution doesn't matter. That's where everything starts."
               </blockquote>
             </div>
           </div>

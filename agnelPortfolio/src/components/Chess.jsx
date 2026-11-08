@@ -30,7 +30,7 @@ export default function Chess() {
             <h3 className="chess-title">Chess</h3>
             <p className="chess-desc">
               When I step away from terminals and code, I play chess.
-              Mostly slow games and casual blitz. Calculating moves and finding tactical order 
+              Mostly rapid games. Calculating moves and finding tactical order 
               is a good way to unwind.
             </p>
             <a

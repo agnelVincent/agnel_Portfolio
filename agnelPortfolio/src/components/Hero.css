@@ -88,7 +88,7 @@
 .hero-prose-col {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .hero-lead {
@@ -100,8 +100,8 @@
 }
 
 .hero-body {
-  font-size: 15.5px;
-  line-height: 1.76;
+  font-size: 15px;
+  line-height: 1.74;
   color: var(--text-2);
 }
 

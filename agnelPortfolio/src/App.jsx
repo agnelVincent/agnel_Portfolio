@@ -2,7 +2,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Narrative from './components/Narrative'
 import Systems from './components/Systems'
-import Thinking from './components/Thinking'
 import Chess from './components/Chess'
 import Footer from './components/Footer'
 
@@ -14,7 +13,6 @@ export default function App() {
         <Hero />
         <Narrative />
         <Systems />
-        <Thinking />
         <Chess />
       </main>
       <Footer />

@@ -29,9 +29,9 @@ export default function Hero() {
               I'm a software engineer working on backend systems, data pipelines, and infrastructure.
             </p>
             <p className="hero-body">
-              I like when things get into a messy state: broken schemas, failing migrations, or deadlock cascades. 
-              Digging into that state, figuring out why it happened, and untangling it is what keeps this interesting.
-            </p>
+              I like figuring out how things work, then building my own version of them. Most days that means writing code: websites, apps, little tools, but really it's just me enjoying the process of turning an idea into something real.            </p>
+            <p className="hero-body">
+              I like when things get into a messy state. Untangling that state is what keeps this interesting..            </p>
           </div>
 
           <div className="hero-photo-col reveal" style={{ transitionDelay: '0.14s' }}>
