@@ -1,7 +1,8 @@
 .footer {
-  margin-top: 96px;
-  padding: 40px 0 56px;
+  margin-top: 128px;
+  padding: 56px 0 80px;
   border-top: 1px solid var(--border);
+  position: relative;
 }
 
 .footer-inner {
@@ -9,17 +10,30 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 32px;
 }
 
 .footer-id {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
   cursor: default;
-  transition: color var(--duration) var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-id::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.85;
 }
 
 .footer-id:hover {
@@ -30,49 +44,70 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 28px;
   font-size: 13px;
+  letter-spacing: 0.04em;
 }
 
 .footer-links a {
   color: var(--text-secondary);
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   min-height: 44px;
   padding: 0 4px;
-  transition: color var(--duration) var(--ease-out);
+  position: relative;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 4px;
+  right: 4px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-fast) var(--ease-out);
 }
 
 .footer-links a:hover {
   color: var(--text-primary);
 }
 
-@media (max-width: 768px) {
-  .footer {
-    margin-top: 64px;
-    padding: 32px 0 48px;
-  }
+.footer-links a:hover::after {
+  transform: scaleX(1);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 860px) {
+  .footer {
+    margin-top: 80px;
+    padding: 40px 0 60px;
+  }
+
   .footer-inner {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
   }
 
   .footer-links {
-    gap: 8px 18px;
-  }
-
-  .footer-links a {
-    min-height: 44px;
+    justify-content: center;
+    gap: 12px 24px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
+  .footer {
+    margin-top: 56px;
+    padding: 32px 0 48px;
+  }
+
   .footer-links {
-    gap: 4px 14px;
+    gap: 8px 16px;
     font-size: 12px;
   }
 }

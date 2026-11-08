@@ -1,52 +1,94 @@
 .hero {
-  padding: 96px 0 72px;
+  padding: 104px 0 88px;
+  position: relative;
 }
 
 .hero-top {
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 .hero-name-row {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
+/* Enormous viewport-scaled display typography with high contrast */
 .hero-name {
-  font-size: clamp(52px, 8.5vw, 92px);
-  font-weight: 600;
+  font-size: clamp(3.8rem, 11.5vw, 9.8rem);
+  font-weight: 400;
   letter-spacing: -0.04em;
-  line-height: 1.04;
+  line-height: 0.94;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.22em;
+  flex-direction: column;
+}
+
+/* Line-by-line mask reveal on page load */
+.hero-name-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+
+.hero-name-mask > span {
+  display: inline-block;
+  animation: heroMaskSlide 0.85s var(--ease-editorial) forwards;
+}
+
+.hero-name-mask:nth-child(2) > span {
+  animation-delay: 0.12s;
+  animation-fill-mode: both;
+}
+
+@keyframes heroMaskSlide {
+  from {
+    transform: translateY(115%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .first-name {
   color: var(--text-primary);
+  font-style: normal;
+  font-weight: 400;
 }
 
 .last-name {
-  color: var(--text-muted);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-secondary);
   transition: color var(--duration) var(--ease-out);
+  margin-left: 0.04em;
 }
 
 .hero-name:hover .last-name {
-  color: var(--text-secondary);
+  color: var(--accent);
+}
+
+.hero-meta-row {
+  display: flex;
+  align-items: center;
 }
 
 /* Precision architectural metadata badge */
 .hero-meta-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 11px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 10px;
+  font-size: 11.5px;
   font-weight: 500;
   color: var(--text-secondary);
-  letter-spacing: 0.05em;
-  padding: 6px 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 18px;
   border-radius: var(--radius-sm);
   background: var(--surface);
   border: 1px solid var(--border);
-  transition: border-color var(--duration) var(--ease-out), color var(--duration) var(--ease-out);
+  transition: border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
   cursor: default;
 }
 
@@ -56,41 +98,43 @@
 }
 
 .meta-sep {
-  color: var(--text-muted);
-  opacity: 0.7;
+  color: var(--accent);
+  opacity: 0.8;
 }
 
-/* Stage layout with asymmetric rhythm */
+/* Broken grid layout: asymmetric prose column + tall arched focal portrait */
 .hero-stage {
   display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 56px;
+  grid-template-columns: 1fr 310px;
+  gap: 72px;
   align-items: flex-start;
+  margin-top: 16px;
 }
 
 .hero-prose-col {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   max-width: 64ch;
 }
 
 .hero-lead {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.6;
+  font-size: clamp(21px, 2.3vw, 26px);
+  font-weight: 400;
+  line-height: 1.52;
   color: var(--text-primary);
   letter-spacing: -0.015em;
+  font-family: var(--font-serif);
 }
 
 .hero-body {
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.72;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.74;
   color: var(--text-secondary);
 }
 
-/* Hero photo frame: architectural portrait plate */
+/* Primary Portrait Plate: Arched mask, clear scale focal point, warm tonal grade */
 .hero-photo-col {
   display: flex;
   justify-content: flex-end;
@@ -98,18 +142,18 @@
 
 .hero-photo-frame {
   width: 100%;
-  max-width: 240px;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius-md);
+  max-width: 310px;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-arch);
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--surface);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   transition: border-color var(--duration) var(--ease-out);
 }
 
 .hero-photo-frame:hover {
-  border-color: var(--border-hover);
+  border-color: var(--accent-border);
 }
 
 .hero-photo-img {
@@ -117,97 +161,77 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: contrast(1.03) brightness(0.97);
+  filter: sepia(0.08) contrast(1.05) brightness(0.96) saturate(0.94);
   transition: filter var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
 }
 
 .hero-photo-frame:hover .hero-photo-img {
-  filter: contrast(1.06) brightness(1);
+  filter: sepia(0) contrast(1.02) brightness(1.02) saturate(1);
   transform: scale(1.02);
 }
 
-/* Responsive: tablet and mobile photo centering */
-@media (max-width: 860px) {
+/* Responsive: Dedicated tablet & mobile composition */
+@media (max-width: 920px) {
   .hero {
-    padding: 64px 0 48px;
+    padding: 72px 0 56px;
   }
 
   .hero-top {
-    margin-bottom: 36px;
+    margin-bottom: 40px;
   }
 
   .hero-name {
-    font-size: clamp(42px, 9vw, 72px);
-    line-height: 1.08;
+    font-size: clamp(3.2rem, 13vw, 6.4rem);
+    line-height: 0.98;
   }
 
   .hero-stage {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 48px;
   }
 
-  .hero-prose-col {
-    max-width: 100%;
-  }
-
-  /* Centered photo plate on tablet & mobile */
   .hero-photo-col {
-    display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
-    margin-top: 8px;
   }
 
   .hero-photo-frame {
-    max-width: 250px;
-    width: 100%;
-    aspect-ratio: 4 / 5;
+    max-width: 270px;
     margin: 0 auto;
-  }
-
-  .hero-lead {
-    font-size: 18.5px;
-    line-height: 1.6;
-  }
-
-  .hero-body {
-    font-size: 14.5px;
-    line-height: 1.7;
   }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 480px) {
   .hero {
-    padding: 48px 0 36px;
+    padding: 48px 0 40px;
   }
 
   .hero-name {
-    font-size: clamp(36px, 10.5vw, 52px);
-  }
-
-  .hero-photo-frame {
-    max-width: 230px;
-    margin: 0 auto;
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+    letter-spacing: -0.03em;
   }
 
   .hero-meta-badge {
     font-size: 10.5px;
-    padding: 5px 12px;
-  }
-}
-
-@media (max-width: 360px) {
-  .hero {
-    padding: 40px 0 32px;
+    padding: 6px 14px;
+    gap: 8px;
   }
 
-  .hero-name {
-    font-size: clamp(32px, 10vw, 44px);
+  .hero-stage {
+    gap: 36px;
+  }
+
+  .hero-lead {
+    font-size: 19px;
+    line-height: 1.5;
+  }
+
+  .hero-body {
+    font-size: 15px;
+    line-height: 1.7;
   }
 
   .hero-photo-frame {
-    max-width: 210px;
-    margin: 0 auto;
+    max-width: 240px;
   }
 }

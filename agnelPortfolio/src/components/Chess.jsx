@@ -13,21 +13,10 @@ export default function Chess() {
           <span className="section-tag mono">CHESS.COM</span>
         </div>
 
-        <div className="chess-card reveal" style={{ transitionDelay: '0.07s' }}>
-          <div className="chess-board-wrap" aria-hidden="true">
-            {Array.from({ length: 64 }).map((_, i) => {
-              const r = Math.floor(i / 8), c = i % 8
-              return (
-                <div
-                  key={i}
-                  className={`cb-sq ${(r + c) % 2 === 0 ? 'cb-light' : 'cb-dark'}`}
-                />
-              )
-            })}
-          </div>
-
+        {/* Feature Chess Stage with Grand Asymmetric Board */}
+        <div className="chess-card reveal" style={{ transitionDelay: '0.08s' }}>
           <div className="chess-text">
-            <h3 className="chess-title">Chess</h3>
+            <h3 className="chess-title display-font">Chess</h3>
             <p className="chess-desc">
               When I step away from terminals and code, I play chess.
               Mostly rapid games. Calculating moves and finding tactical order 
@@ -40,8 +29,22 @@ export default function Chess() {
               className="chess-link mono"
             >
               <span>@agnelVincent on Chess.com</span>
-              <span>↗</span>
+              <span className="chess-arrow">↗</span>
             </a>
+          </div>
+
+          <div className="chess-board-stage">
+            <div className="chess-board-wrap" aria-hidden="true">
+              {Array.from({ length: 64 }).map((_, i) => {
+                const r = Math.floor(i / 8), c = i % 8
+                return (
+                  <div
+                    key={i}
+                    className={`cb-sq ${(r + c) % 2 === 0 ? 'cb-light' : 'cb-dark'}`}
+                  />
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>

@@ -1,8 +1,37 @@
+import { useEffect, useRef, useState } from 'react'
 import './Narrative.css'
 import { useReveal } from '../hooks/useReveal'
 
 export default function Narrative() {
   const ref = useReveal()
+  const proseRef = useRef(null)
+  const [activeIdx, setActiveIdx] = useState(0)
+
+  useEffect(() => {
+    const proseEl = proseRef.current
+    if (!proseEl) return
+
+    const paras = proseEl.querySelectorAll('p')
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = Array.from(paras).indexOf(entry.target)
+            if (index !== -1) {
+              setActiveIdx(index)
+            }
+          }
+        })
+      },
+      {
+        rootMargin: '-20% 0px -40% 0px',
+        threshold: 0.2,
+      }
+    )
+
+    paras.forEach(p => observer.observe(p))
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section id="story" className="narrative" ref={ref}>
@@ -13,30 +42,32 @@ export default function Narrative() {
         </div>
 
         <div className="narrative-grid">
-<div className="narrative-prose reveal">
-  <p className="narrative-opener">
-    For a long time, I had no direction. I tried different things, failed at
-    most of them, and never had a roadmap.
-  </p>
-  <p>
-    I grew up without a computer of my own, so while everyone around me used
-    them effortlessly, I was always a step behind. What I hated most was being
-    seen that way. I avoided computers, made excuses, and even claimed screens
-    gave me headaches, just so no one would notice how little I knew.
-  </p>
-  <p>
-    After enough dead ends, I made a decision that made no practical sense: I
-    walked straight toward the thing I feared most. I chose software
-    engineering with no background and only a vague idea of what it involved.
-  </p>
-  <p>
-    It held my attention like nothing else had. I started from the absolute
-    basics, broke things on purpose, and stayed with the confusion until it
-    cleared. What I once avoided became the thing I choose every day. That’s
-    the motive I carry now: do what you fear the most.
-  </p>
-</div>
+          {/* Scrolling Prose Column with Dynamic Paragraph Dimming */}
+          <div className="narrative-prose reveal" ref={proseRef}>
+            <p className={`narrative-opener ${activeIdx === 0 ? 'is-active' : ''}`}>
+              For a long time, I had no direction. I tried different things, failed at
+              most of them, and never had a roadmap.
+            </p>
+            <p className={activeIdx === 1 ? 'is-active' : ''}>
+              I grew up without a computer of my own, so while everyone around me used
+              them effortlessly, I was always a step behind. What I hated most was being
+              seen that way. I avoided computers, made excuses, and even claimed screens
+              gave me headaches, just so no one would notice how little I knew.
+            </p>
+            <p className={activeIdx === 2 ? 'is-active' : ''}>
+              After enough dead ends, I made a decision that made no practical sense: I
+              walked straight toward the thing I feared most. I chose software
+              engineering with no background and only a vague idea of what it involved.
+            </p>
+            <p className={activeIdx === 3 ? 'is-active' : ''}>
+              It held my attention like nothing else had. I started from the absolute
+              basics, broke things on purpose, and stayed with the confusion until it
+              cleared. What I once avoided became the thing I choose every day. That’s
+              the motive I carry now: do what you fear the most.
+            </p>
+          </div>
 
+          {/* Pinned Aside: Secondary Architectural Photo + Quote Card */}
           <div className="narrative-aside reveal" style={{ transitionDelay: '0.12s' }}>
             <div className="narrative-photo-frame">
               <img

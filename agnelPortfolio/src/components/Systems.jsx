@@ -39,27 +39,34 @@ export default function Systems() {
           <span className="section-tag mono">CORE DOMAINS</span>
         </div>
 
-        <div className="systems-grid">
+        {/* Full-Width Editorial Index replacing card grid */}
+        <div className="systems-index">
           {items.map((item, i) => (
             <div
               key={item.num}
-              className="sys-card reveal"
-              style={{ transitionDelay: `${i * 0.08}s` }}
+              className="sys-row reveal"
+              style={{ transitionDelay: `${i * 0.09}s` }}
             >
-              <div className="sys-header">
+              <div className="sys-row-indicator" aria-hidden="true" />
+              <div className="sys-num-col">
                 <span className="sys-num mono">{item.num}</span>
-                <h3 className="sys-title">{item.title}</h3>
               </div>
 
-              <p className="sys-desc">{item.body}</p>
+              <div className="sys-content-col">
+                <div className="sys-header">
+                  <h3 className="sys-title display-font">{item.title}</h3>
+                </div>
 
-              <div className="sys-footer">
-                <div className="sys-tags mono">
-                  {item.tags.map((tag) => (
-                    <span key={tag} className="sys-tag">
-                      {tag}
-                    </span>
-                  ))}
+                <p className="sys-desc">{item.body}</p>
+
+                <div className="sys-footer">
+                  <div className="sys-tags mono">
+                    {item.tags.map((tag) => (
+                      <span key={tag} className="sys-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
