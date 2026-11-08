@@ -6,171 +6,65 @@
 .systems-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .sys-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%);
-  border: 1px solid var(--border-card);
-  border-radius: 14px;
-  padding: 26px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
-  box-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.07) inset,
-    0 14px 32px -8px rgba(0, 0, 0, 0.55);
-  transition: 
-    transform 350ms var(--ease-out), 
-    border-color 300ms ease, 
-    box-shadow 350ms ease, 
-    background 300ms ease;
+  transition: border-color var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
 }
 
 .sys-card:hover {
-  transform: translateY(-4px);
   border-color: var(--border-hover);
-  box-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.12) inset,
-    0 24px 52px -12px rgba(0, 0, 0, 0.75);
-}
-
-/* Card 01 — Warm Amber / Copper (Data Migration) */
-.sys-card:nth-child(1):hover {
-  background: radial-gradient(ellipse 85% 220px at 50% -20px, rgba(245, 158, 11, 0.09) 0%, rgba(255, 255, 255, 0.02) 65%, rgba(255, 255, 255, 0.006) 100%);
-  border-color: rgba(245, 158, 11, 0.3);
-  box-shadow: 
-    0 1px 0 rgba(245, 158, 11, 0.25) inset,
-    0 24px 52px -12px rgba(0, 0, 0, 0.8),
-    0 0 36px rgba(245, 158, 11, 0.07);
-}
-
-.sys-card:nth-child(1):hover .sys-num {
-  color: #fbbf24;
-  border-color: rgba(245, 158, 11, 0.35);
-  background: rgba(245, 158, 11, 0.08);
-  box-shadow: 0 0 14px rgba(245, 158, 11, 0.18);
-}
-
-.sys-card:nth-child(1) .sys-tag:hover {
-  border-color: rgba(245, 158, 11, 0.45);
-  color: #fde68a;
-  background: rgba(245, 158, 11, 0.1);
-  transform: translateY(-1.5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* Card 02 — Electric Cyan / Teal (REST APIs & Full Stack) */
-.sys-card:nth-child(2):hover {
-  background: radial-gradient(ellipse 85% 220px at 50% -20px, rgba(56, 189, 248, 0.09) 0%, rgba(255, 255, 255, 0.02) 65%, rgba(255, 255, 255, 0.006) 100%);
-  border-color: rgba(56, 189, 248, 0.3);
-  box-shadow: 
-    0 1px 0 rgba(56, 189, 248, 0.25) inset,
-    0 24px 52px -12px rgba(0, 0, 0, 0.8),
-    0 0 36px rgba(56, 189, 248, 0.07);
-}
-
-.sys-card:nth-child(2):hover .sys-num {
-  color: #38bdf8;
-  border-color: rgba(56, 189, 248, 0.35);
-  background: rgba(56, 189, 248, 0.08);
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.18);
-}
-
-.sys-card:nth-child(2) .sys-tag:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-  color: #bae6fd;
-  background: rgba(56, 189, 248, 0.1);
-  transform: translateY(-1.5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* Card 03 — Royal Amethyst / Violet (Data Structures & Algorithms) */
-.sys-card:nth-child(3):hover {
-  background: radial-gradient(ellipse 85% 220px at 50% -20px, rgba(168, 85, 247, 0.09) 0%, rgba(255, 255, 255, 0.02) 65%, rgba(255, 255, 255, 0.006) 100%);
-  border-color: rgba(168, 85, 247, 0.3);
-  box-shadow: 
-    0 1px 0 rgba(168, 85, 247, 0.25) inset,
-    0 24px 52px -12px rgba(0, 0, 0, 0.8),
-    0 0 36px rgba(168, 85, 247, 0.07);
-}
-
-.sys-card:nth-child(3):hover .sys-num {
-  color: #c084fc;
-  border-color: rgba(168, 85, 247, 0.35);
-  background: rgba(168, 85, 247, 0.08);
-  box-shadow: 0 0 14px rgba(168, 85, 247, 0.18);
-}
-
-.sys-card:nth-child(3) .sys-tag:hover {
-  border-color: rgba(168, 85, 247, 0.45);
-  color: #e9d5ff;
-  background: rgba(168, 85, 247, 0.1);
-  transform: translateY(-1.5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* Card 04 — Azure / Cobalt Blue (DevOps and IFS Build Flows) */
-.sys-card:nth-child(4):hover {
-  background: radial-gradient(ellipse 85% 220px at 50% -20px, rgba(96, 165, 250, 0.09) 0%, rgba(255, 255, 255, 0.02) 65%, rgba(255, 255, 255, 0.006) 100%);
-  border-color: rgba(96, 165, 250, 0.3);
-  box-shadow: 
-    0 1px 0 rgba(96, 165, 250, 0.25) inset,
-    0 24px 52px -12px rgba(0, 0, 0, 0.8),
-    0 0 36px rgba(96, 165, 250, 0.07);
-}
-
-.sys-card:nth-child(4):hover .sys-num {
-  color: #60a5fa;
-  border-color: rgba(96, 165, 250, 0.35);
-  background: rgba(96, 165, 250, 0.08);
-  box-shadow: 0 0 14px rgba(96, 165, 250, 0.18);
-}
-
-.sys-card:nth-child(4) .sys-tag:hover {
-  border-color: rgba(96, 165, 250, 0.45);
-  color: #bfdbfe;
-  background: rgba(96, 165, 250, 0.1);
-  transform: translateY(-1.5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
 }
 
 .sys-header {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   gap: 12px;
   margin-bottom: 12px;
 }
 
 .sys-num {
-  font-size: 10.5px;
-  color: var(--text-2);
-  letter-spacing: 0.06em;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
-  padding: 3px 7px;
-  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
   flex-shrink: 0;
-  margin-top: 2px;
-  transition: color 250ms ease, border-color 250ms ease, background 250ms ease, box-shadow 250ms ease;
+  transition: border-color var(--duration) var(--ease-out), color var(--duration) var(--ease-out);
+}
+
+.sys-card:hover .sys-num {
+  border-color: var(--border-hover);
+  color: var(--text-secondary);
 }
 
 .sys-title {
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: 600;
-  color: #f3f5f8;
+  color: var(--text-primary);
   letter-spacing: -0.015em;
-  line-height: 1.4;
+  line-height: 1.25;
   margin: 0;
 }
 
 .sys-desc {
   font-size: 14px;
-  line-height: 1.7;
-  color: var(--text-2);
-  margin-bottom: 20px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
   flex: 1;
 }
 
@@ -181,56 +75,55 @@
   gap: 12px;
   flex-wrap: wrap;
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 16px;
   border-top: 1px solid var(--border);
 }
 
 .sys-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px;
 }
 
 .sys-tag {
   font-size: 11px;
-  color: var(--text-3);
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  padding: 3px 9px;
-  border-radius: 6px;
+  font-weight: 400;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
   letter-spacing: 0.02em;
-  transition: all 200ms var(--ease-out);
+  transition: color var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
   cursor: default;
 }
 
 .sys-card:hover .sys-tag {
-  color: var(--text-1);
-  border-color: rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border-color: var(--border-hover);
 }
 
 .sys-link {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 11.5px;
-  color: var(--text-2);
-  padding: 3px 10px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.04);
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
   border: 1px solid var(--border);
-  transition: all 180ms ease;
+  transition: color var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
 }
 
 .sys-link:hover {
-  color: var(--text-1);
+  color: var(--text-primary);
   border-color: var(--border-hover);
-  background: rgba(255, 255, 255, 0.08);
 }
 
-@media (max-width: 740px) {
+@media (max-width: 768px) {
   .systems {
-    padding: 52px 0;
+    padding: 48px 0;
   }
 
   .systems-grid {
@@ -239,12 +132,7 @@
   }
 
   .sys-card {
-    padding: 22px 18px;
-  }
-
-  .sys-card:active {
-    transform: scale(0.99);
-    border-color: var(--border-hover);
+    padding: 20px;
   }
 
   .sys-title {
@@ -253,20 +141,11 @@
 
   .sys-desc {
     font-size: 13.5px;
-    line-height: 1.68;
-    margin-bottom: 16px;
+    line-height: 1.65;
+    margin-bottom: 20px;
   }
 
   .sys-footer {
     padding-top: 12px;
-  }
-
-  .sys-tags {
-    gap: 6px;
-  }
-
-  .sys-tag {
-    font-size: 10.5px;
-    padding: 3px 8px;
   }
 }

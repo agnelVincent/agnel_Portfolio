@@ -2,15 +2,13 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 18px 0;
-  transition: background 250ms ease, border-color 250ms ease, padding 250ms ease;
+  padding: 16px 0;
+  transition: background var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out), padding var(--duration) var(--ease-out);
   border-bottom: 1px solid transparent;
+  background-color: var(--bg);
 }
 
 .nav.scrolled {
-  background: rgba(9, 10, 15, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-bottom-color: var(--border);
   padding: 12px 0;
 }
@@ -19,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
 }
 
 .nav-brand {
@@ -28,17 +26,12 @@
 }
 
 .nav-name {
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  color: #f3f4f7;
-  transition: color 250ms ease, text-shadow 250ms ease;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
   cursor: default;
-}
-
-.nav-name:hover {
-  color: #ffffff;
-  text-shadow: 0 0 16px rgba(255, 255, 255, 0.45);
+  transition: color var(--duration) var(--ease-out);
 }
 
 .nav-anchors {
@@ -49,14 +42,15 @@
 }
 
 .nav-anchors a {
-  color: var(--text-3);
-  transition: color 200ms ease, transform 200ms var(--ease-out);
-  display: inline-block;
+  color: var(--text-secondary);
+  transition: color var(--duration) var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
 }
 
 .nav-anchors a:hover {
-  color: var(--text-1);
-  transform: translateY(-0.5px);
+  color: var(--text-primary);
 }
 
 .nav-links {
@@ -67,27 +61,28 @@
 }
 
 .nav-links a {
-  color: var(--text-2);
-  transition: color 200ms ease, transform 200ms var(--ease-out);
-  display: inline-block;
+  color: var(--text-secondary);
+  transition: color var(--duration) var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
 }
 
 .nav-links a:hover {
-  color: #ffffff;
-  transform: translateY(-0.5px);
+  color: var(--text-primary);
 }
 
 @media (max-width: 640px) {
   .nav {
-    padding: 14px 0;
+    padding: 8px 0;
   }
 
   .nav.scrolled {
-    padding: 10px 0;
+    padding: 8px 0;
   }
 
   .nav-inner {
-    gap: 12px;
+    gap: 16px;
   }
 
   .nav-anchors {
@@ -95,11 +90,12 @@
   }
 
   .nav-links {
-    gap: 14px;
-    font-size: 12.5px;
+    gap: 16px;
+    font-size: 13px;
   }
 
   .nav-links a {
-    padding: 4px 0;
+    min-height: 44px;
+    padding: 0 4px;
   }
 }
